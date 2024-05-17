@@ -8,19 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5002BF7023C00F5C789 /* DewieAppApp.swift */; };
-		8B34D5032BF7023C00F5C789 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5022BF7023C00F5C789 /* ContentView.swift */; };
-		8B34D5052BF7023C00F5C789 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5042BF7023C00F5C789 /* Item.swift */; };
 		8B34D5072BF7023D00F5C789 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B34D5062BF7023D00F5C789 /* Assets.xcassets */; };
 		8B34D50A2BF7023D00F5C789 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B34D5092BF7023D00F5C789 /* Preview Assets.xcassets */; };
+		8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5112BF7037F00F5C789 /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B34D4FD2BF7023C00F5C789 /* DewieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DewieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B34D5002BF7023C00F5C789 /* DewieAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DewieAppApp.swift; sourceTree = "<group>"; };
-		8B34D5022BF7023C00F5C789 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8B34D5042BF7023C00F5C789 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8B34D5062BF7023D00F5C789 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B34D5092BF7023D00F5C789 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B34D5102BF7033300F5C789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B34D5112BF7037F00F5C789 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +52,11 @@
 		8B34D4FF2BF7023C00F5C789 /* DewieApp */ = {
 			isa = PBXGroup;
 			children = (
+				8B34D5102BF7033300F5C789 /* Info.plist */,
 				8B34D5002BF7023C00F5C789 /* DewieAppApp.swift */,
-				8B34D5022BF7023C00F5C789 /* ContentView.swift */,
-				8B34D5042BF7023C00F5C789 /* Item.swift */,
 				8B34D5062BF7023D00F5C789 /* Assets.xcassets */,
 				8B34D5082BF7023D00F5C789 /* Preview Content */,
+				8B34D5112BF7037F00F5C789 /* WelcomeScreen.swift */,
 			);
 			path = DewieApp;
 			sourceTree = "<group>";
@@ -140,8 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B34D5032BF7023C00F5C789 /* ContentView.swift in Sources */,
-				8B34D5052BF7023C00F5C789 /* Item.swift in Sources */,
+				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,11 +277,11 @@
 				DEVELOPMENT_TEAM = U39ZK6BR9C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DewieApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -291,9 +289,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodgendazs.DewieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,11 +310,11 @@
 				DEVELOPMENT_TEAM = U39ZK6BR9C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DewieApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +322,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodgendazs.DewieApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
