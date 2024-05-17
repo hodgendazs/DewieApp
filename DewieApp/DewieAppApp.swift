@@ -10,23 +10,26 @@ import SwiftData
 
 @main
 struct DewieAppApp: App {
-//    var sharedModelContainer: ModelContainer = {
-//        let schema = Schema([
-//            Item.self,
-//        ])
-//        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-//
-//        do {
-//            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-//        } catch {
-//            fatalError("Could not create ModelContainer: \(error)")
-//        }
-//    }()
+    let container: ModelContainer
+    
+    init() {
+        do {
+            //let config1 = ModelConfiguration(for: Officer.self)
+            //let config2 = ModelConfiguration(for: License.self)
+            container = try ModelContainer(for: Officer.self, License.self)
+            // if we need to do a data migration, then the line above this will change to:
+            // container = try ModelContainer(for: Officer.self, migrationPlan: OfficerMigrationPlan.self)
+        } catch {
+            fatalError("Failed to initialize container.")
+        }
+    }
 
     var body: some Scene {
         WindowGroup {
-            WelcomeScreen()
+            NavigationStack {
+                WelcomeScreen()
+            }
         }
-        //.modelContainer(sharedModelContainer)
+        .modelContainer(container)
     }
 }

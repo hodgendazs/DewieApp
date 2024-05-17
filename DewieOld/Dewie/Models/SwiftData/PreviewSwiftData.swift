@@ -16,7 +16,7 @@ let multipleOfficerPreviewContainer: ModelContainer = {
         
         
         for index in 0..<10 {
-            let newOfficer = Officer(id: UUID(), lastAccessed: Date(), firstName: "FirstName #\(index)", lastName: "LastName #\(index)", badgeNumber: "\(index)", department: "Department #\(index)", departmentEmail: "email\(index)@email.com", lackOfConvergence: true, modifiedRomberg: false, fingerToNose: true, pdfExport: true, imageExport: false, reports: [])
+            let newOfficer = Officer(id: UUID(), lastAccessed: Date(), firstName: "FirstName #\(index)", lastName: "LastName #\(index)", badgeNumber: "\(index)", department: "Department #\(index)", departmentEmail: "email\(index)@email.com", pdfExport: true, imageExport: false, reports: [])
             container.mainContext.insert(newOfficer)
         }
         return container
@@ -30,7 +30,7 @@ let singleOfficerPreviewContainer: ModelContainer = {
     do {
         let container = try ModelContainer(for: Officer.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
         
-        let officer = Officer(lastAccessed: Date(), firstName: "Thomas", lastName: "Hodge", badgeNumber: "8675309", department: "Test Department", departmentEmail: "test@email.com", lackOfConvergence: true, modifiedRomberg: true, fingerToNose: false, pdfExport: true, imageExport: false, reports: [Report(caseNumber: "24-1111", officerId: UUID(), hgnTestResults: Report.HGN(equalPupilSize: false, noRestingNystagmus: false, equalTracking: false, lackLeftEye: false, lackRightEye: false, distinctLeftEye: false, distinctRightEye: false, onsetLeftEye: false, onsetRightEye: false, vgnNotPresent: true, vgnPresent: false, hgnNotes: "HGN Preview Notes"), walkAndTurnResults: Report.WalkAndTurn(startsTooSoon: false, cannotRemainInStartingPosition: false, stepsOffLine: false, missesHeelToToe: false, raisesArmForBalance: false, stops: false, incorrectNumberOfSteps: false, numberOfIncorrectSteps: "1", turnNotAsDescribed: false, improperTurnDescription: "Turned like Michael Jackson", walkAndTurnNotes: "Walk and Turn Preview Notes"))])
+        let officer = Officer(lastAccessed: Date(), firstName: "Thomas", lastName: "Hodge", badgeNumber: "8675309", department: "Test Department", departmentEmail: "test@email.com", pdfExport: true, imageExport: false, reports: [Report(caseNumber: "24-1111", officerId: UUID(), hgnTestResults: Report.HGN(equalPupilSize: false, noRestingNystagmus: false, equalTracking: false, lackLeftEye: false, lackRightEye: false, distinctLeftEye: false, distinctRightEye: false, onsetLeftEye: false, onsetRightEye: false, vgnNotPresent: true, vgnPresent: false, hgnNotes: "HGN Preview Notes"), walkAndTurnResults: Report.WalkAndTurn(startsTooSoon: false, cannotRemainInStartingPosition: false, stepsOffTheLine: false, missesHeelToToe: false, raisesArmForBalance: false, stops: false, incorrectNumberOfSteps: false, numberOfIncorrectNumberOfSteps: "1", turnNotAsDescribed: false, improperTurnDescription: "Turned like Michael Jackson", walkAndTurnNotes: "Walk and Turn Preview Notes"))])
         container.mainContext.insert(officer)
         return container
     } catch {
