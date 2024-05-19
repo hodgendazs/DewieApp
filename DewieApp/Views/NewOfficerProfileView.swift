@@ -19,6 +19,7 @@ struct NewOfficerProfileView: View {
     @State var badgeNumber: String = ""
     @State var department: String = ""
     @State var departmentEmail: String = ""
+    @State var departmentCode: String = ""
     @State var pdfExport: Bool = true
     @State var imageExport: Bool = false
     
@@ -44,6 +45,10 @@ struct NewOfficerProfileView: View {
                             TextField("Badge Number", text: $badgeNumber)
                             TextField("Department", text: $department)
                             TextField("Department Email", text: $departmentEmail)
+                        }
+                        
+                        Section(header: Text("Department Code (optional)").textScale(.secondary)) {
+                            TextField("Department Code", text: $departmentCode)
                         }
                         
                         // export type section
@@ -73,6 +78,12 @@ struct NewOfficerProfileView: View {
                                 } catch {
                                     print(error.localizedDescription)
                                 }
+                                
+                                if departmentCode != "" {
+                                    // need to add the check here to see if the code it valid against server in AWS, then set the value in that section
+                                    UserDefaults.standard.setValue(true, forKey: "hasDepartmentLicense")
+                                }
+                                
                                 shouldNavigate = true
                                 
                             } label: {

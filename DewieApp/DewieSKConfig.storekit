@@ -1,0 +1,165 @@
+{
+  "identifier" : "CC863244",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "999.99",
+      "familyShareable" : false,
+      "internalID" : "6502869479",
+      "localizations" : [
+        {
+          "description" : "Dewie Lifetime",
+          "displayName" : "Dewie Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "dewie_9999_lifetime",
+      "referenceName" : "dewieLifetimeSubscription",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6502844703",
+    "_developerTeamID" : "U39ZK6BR9C",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 737792560.44332898,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21488948",
+      "localizations" : [
+
+      ],
+      "name" : "Dewie Subscriptions",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+            {
+              "eligibility" : [
+                "new",
+                "existing",
+                "expired"
+              ],
+              "internalID" : "6B7E6956",
+              "isStackable" : false,
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "referenceName" : "newCityOfficers",
+              "subscriptionPeriod" : "P1Y"
+            }
+          ],
+          "displayPrice" : "99.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6502844916",
+          "introductoryOffer" : {
+            "internalID" : "1D6E1DCF",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "A 1-year subscription to Dewie",
+              "displayName" : "Dewie 1-year Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "dewie_9999_1y_1m",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Annual $99.99, 1-month free",
+          "subscriptionGroupID" : "21488948",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6502844834",
+          "introductoryOffer" : {
+            "internalID" : "6485ACDA",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "A 1-month subscription to Dewie",
+              "displayName" : "Dewie 1-month Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "dewie_999_1m_1m",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly $9.99, 1-month free",
+          "subscriptionGroupID" : "21488948",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

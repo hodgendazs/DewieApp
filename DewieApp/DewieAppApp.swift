@@ -7,27 +7,39 @@
 
 import SwiftUI
 import SwiftData
+import RevenueCat
 
 @main
 struct DewieAppApp: App {
     let container: ModelContainer
+    @State var hasDepartmentLicense: Bool = false
     
     init() {
+        // create database container from SwiftData
         do {
-            //let config1 = ModelConfiguration(for: Officer.self)
-            //let config2 = ModelConfiguration(for: License.self)
-            container = try ModelContainer(for: Officer.self, License.self)
-            // if we need to do a data migration, then the line above this will change to:
-            // container = try ModelContainer(for: Officer.self, migrationPlan: OfficerMigrationPlan.self)
+            container = try ModelContainer(for: Officer.self)
         } catch {
             fatalError("Failed to initialize container.")
         }
+        
+        // check to see if there is a department license
+        hasDepartmentLicense = UserDefaults.standard.bool(forKey: "hasDepartmentLicense")
+        
+        if !hasDepartmentLicense {
+            Purchases.configure(withAPIKey: "appl_qeHhuzIGQvHBeuLSSBCafrkctxV")
+        }
+        
     }
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                WelcomeScreen()
+                if hasDepartmentLicense {
+                    //DepartmentWelcomeScreen()
+                } else {
+                    //if container.mainContext.model(for: Officer.self)
+                    WelcomeScreen()
+                }
             }
         }
         .modelContainer(container)

@@ -18,8 +18,13 @@
 		8B34D5622BF71AEF00F5C789 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5612BF71AEF00F5C789 /* String+Extensions.swift */; };
 		8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */; };
 		8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */; };
-		8B34D5682BF71F8200F5C789 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5672BF71F8200F5C789 /* License.swift */; };
 		8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */; };
+		8B3D4B162BF9C52C00774311 /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3D4B152BF9C52C00774311 /* SubscribeView.swift */; };
+		8B3D4B1A2BF9D3DF00774311 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3D4B192BF9D3DF00774311 /* StoreKit.framework */; };
+		8B4AB4B92BF954A30015FFAA /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4AB4B82BF954A30015FFAA /* ReceiptParser */; };
+		8B4AB4BB2BF954A30015FFAA /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4AB4BA2BF954A30015FFAA /* RevenueCat */; };
+		8B4AB4BD2BF954A30015FFAA /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4AB4BC2BF954A30015FFAA /* RevenueCatUI */; };
+		8BB2F1C72BFA9E23005395D7 /* DepartmentLicenseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +41,12 @@
 		8B34D5612BF71AEF00F5C789 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewSwiftData.swift; path = DewieOld/Dewie/Models/SwiftData/PreviewSwiftData.swift; sourceTree = SOURCE_ROOT; };
-		8B34D5672BF71F8200F5C789 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficerProfileView.swift; sourceTree = "<group>"; };
+		8B3D4B152BF9C52C00774311 /* SubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
+		8B3D4B172BF9D22D00774311 /* DewieSKConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = DewieSKConfig.storekit; sourceTree = "<group>"; };
+		8B3D4B192BF9D3DF00774311 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8B3D4B1B2BFA98C200774311 /* DewiePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DewiePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentLicenseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4AB4BB2BF954A30015FFAA /* RevenueCat in Frameworks */,
+				8B4AB4B92BF954A30015FFAA /* ReceiptParser in Frameworks */,
+				8B4AB4BD2BF954A30015FFAA /* RevenueCatUI in Frameworks */,
+				8B3D4B1A2BF9D3DF00774311 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,9 +67,9 @@
 		8B34D4F42BF7023C00F5C789 = {
 			isa = PBXGroup;
 			children = (
-				8B34D5132BF7044F00F5C789 /* DewieOld */,
 				8B34D4FF2BF7023C00F5C789 /* DewieApp */,
 				8B34D4FE2BF7023C00F5C789 /* Products */,
+				8B3D4B182BF9D3DF00774311 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +93,8 @@
 				8B34D5572BF7052500F5C789 /* PreviewContent */,
 				8B34D5062BF7023D00F5C789 /* Assets.xcassets */,
 				8B34D5082BF7023D00F5C789 /* Preview Content */,
+				8B3D4B172BF9D22D00774311 /* DewieSKConfig.storekit */,
+				8B3D4B1B2BFA98C200774311 /* DewiePlayground.playground */,
 			);
 			path = DewieApp;
 			sourceTree = "<group>";
@@ -92,21 +107,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8B34D5132BF7044F00F5C789 /* DewieOld */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DewieOld;
-			sourceTree = "<group>";
-		};
 		8B34D5542BF7051100F5C789 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8B34D5582BF7124A00F5C789 /* Officer.swift */,
 				8B34D55A2BF7142E00F5C789 /* Report.swift */,
-				8B34D5672BF71F8200F5C789 /* License.swift */,
 				8B34D55C2BF7174600F5C789 /* TypeAliases.swift */,
 				8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */,
+				8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			children = (
 				8B34D55E2BF718E500F5C789 /* NewOfficerProfileView.swift */,
 				8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */,
+				8B3D4B152BF9C52C00774311 /* SubscribeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +153,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8B3D4B182BF9D3DF00774311 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B3D4B192BF9D3DF00774311 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +177,11 @@
 			dependencies = (
 			);
 			name = DewieApp;
+			packageProductDependencies = (
+				8B4AB4B82BF954A30015FFAA /* ReceiptParser */,
+				8B4AB4BA2BF954A30015FFAA /* RevenueCat */,
+				8B4AB4BC2BF954A30015FFAA /* RevenueCatUI */,
+			);
 			productName = DewieApp;
 			productReference = 8B34D4FD2BF7023C00F5C789 /* DewieApp.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 8B34D4F42BF7023C00F5C789;
+			packageReferences = (
+				8B4AB4B72BF954A30015FFAA /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			productRefGroup = 8B34D4FE2BF7023C00F5C789 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,7 +249,8 @@
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
 				8B34D55D2BF7174600F5C789 /* TypeAliases.swift in Sources */,
 				8B34D55B2BF7142E00F5C789 /* Report.swift in Sources */,
-				8B34D5682BF71F8200F5C789 /* License.swift in Sources */,
+				8B3D4B162BF9C52C00774311 /* SubscribeView.swift in Sources */,
+				8BB2F1C72BFA9E23005395D7 /* DepartmentLicenseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +388,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DewieApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dewie;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -370,8 +398,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hodgendazs.DewieApp;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = app.dewie.dewieapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -395,6 +423,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DewieApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dewie;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -403,8 +433,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hodgendazs.DewieApp;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = app.dewie.dewieapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -438,6 +468,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B4AB4B72BF954A30015FFAA /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.41.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B4AB4B82BF954A30015FFAA /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4AB4B72BF954A30015FFAA /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = ReceiptParser;
+		};
+		8B4AB4BA2BF954A30015FFAA /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4AB4B72BF954A30015FFAA /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		8B4AB4BC2BF954A30015FFAA /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4AB4B72BF954A30015FFAA /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B34D4F52BF7023C00F5C789 /* Project object */;
 }
