@@ -81,7 +81,9 @@ struct NewOfficerProfileView: View {
                                 
                                 if departmentCode != "" {
                                     // need to add the check here to see if the code it valid against server in AWS, then set the value in that section
-                                    UserDefaults.standard.setValue(true, forKey: "hasDepartmentLicense")
+                                    if departmentCode == "activate" {
+                                        UserDefaults.standard.setValue(true, forKey: "hasDepartmentLicense")
+                                    }
                                 }
                                 
                                 shouldNavigate = true

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @StateObject private var subscriptionManager = SubscriptionManager()
     @State var officer: Officer?
     @State var shouldNavigate: Bool = false
     
@@ -34,12 +35,17 @@ struct WelcomeScreen: View {
                 ZStack {
                     NewOfficerProfileView(officer: $officer, shouldNavigate: $shouldNavigate)
                 }
-                .navigationDestination(isPresented: $shouldNavigate) {
-                    if let officer = officer {
-                        HomeScreen(currentOfficer: officer).navigationBarBackButtonHidden(true)                        }
-                }
+
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
+        }
+        .navigationDestination(isPresented: $shouldNavigate) {
+            if let officer = officer {
+                HomeScreen(currentOfficer: officer).navigationBarBackButtonHidden(true)                        }
+        }
+        .onAppear {
+            print("Has subscription: \(subscriptionManager.isSubscribed)")
+            print("Has department code: \(UserDefaults.standard.bool(forKey: "hasDepartmentCode"))")
         }
     }
 }

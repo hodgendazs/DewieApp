@@ -25,6 +25,8 @@
 		8B4AB4BB2BF954A30015FFAA /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4AB4BA2BF954A30015FFAA /* RevenueCat */; };
 		8B4AB4BD2BF954A30015FFAA /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4AB4BC2BF954A30015FFAA /* RevenueCatUI */; };
 		8BB2F1C72BFA9E23005395D7 /* DepartmentLicenseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */; };
+		8BB2F1C92BFBC852005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1C82BFBC852005395D7 /* SubscriptionManager.swift */; };
+		8BB2F1CB2BFC4DAA005395D7 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CA2BFC4DAA005395D7 /* LoadingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		8B3D4B192BF9D3DF00774311 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8B3D4B1B2BFA98C200774311 /* DewiePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DewiePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentLicenseManager.swift; sourceTree = "<group>"; };
+		8BB2F1C82BFBC852005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		8BB2F1CA2BFC4DAA005395D7 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				8B34D55C2BF7174600F5C789 /* TypeAliases.swift */,
 				8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */,
 				8BB2F1C62BFA9E23005395D7 /* DepartmentLicenseManager.swift */,
+				8BB2F1C82BFBC852005395D7 /* SubscriptionManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			children = (
 				8B34D5112BF7037F00F5C789 /* WelcomeScreen.swift */,
 				8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */,
+				8BB2F1CA2BFC4DAA005395D7 /* LoadingScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -243,9 +249,11 @@
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
 				8B34D5592BF7124A00F5C789 /* Officer.swift in Sources */,
 				8B34D5622BF71AEF00F5C789 /* String+Extensions.swift in Sources */,
+				8BB2F1C92BFBC852005395D7 /* SubscriptionManager.swift in Sources */,
 				8B34D55F2BF718E500F5C789 /* NewOfficerProfileView.swift in Sources */,
 				8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */,
 				8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */,
+				8BB2F1CB2BFC4DAA005395D7 /* LoadingScreen.swift in Sources */,
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
 				8B34D55D2BF7174600F5C789 /* TypeAliases.swift in Sources */,
 				8B34D55B2BF7142E00F5C789 /* Report.swift in Sources */,

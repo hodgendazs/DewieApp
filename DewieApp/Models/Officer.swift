@@ -18,7 +18,7 @@ enum OfficerSchemaV1: VersionedSchema {
     @Model
     final class Officer {
         let id: UUID
-        var licenseId: UUID?
+        var hasDepartmentAccess: Bool
         var lastAccessed: Date
         var firstName: String
         var lastName: String
@@ -29,8 +29,9 @@ enum OfficerSchemaV1: VersionedSchema {
         var imageExport: Bool
         var reports: [Report]
         
-        init(id: UUID = UUID(), lastAccessed: Date, firstName: String, lastName: String, badgeNumber: String, department: String, departmentEmail: String, pdfExport: Bool, imageExport: Bool, reports: [Report]) {
+        init(id: UUID = UUID(), hasDepartmentAccess: Bool, lastAccessed: Date, firstName: String, lastName: String, badgeNumber: String, department: String, departmentEmail: String, pdfExport: Bool, imageExport: Bool, reports: [Report]) {
             self.id = id
+            self.hasDepartmentAccess = hasDepartmentAccess
             self.lastAccessed = lastAccessed
             self.firstName = firstName
             self.lastName = lastName
@@ -47,7 +48,7 @@ enum OfficerSchemaV1: VersionedSchema {
             self.reports.append(report)
         }
         
-        static let previewOfficerData = Officer(lastAccessed: Date(), firstName: "Test First Name", lastName: "Test Last Name", badgeNumber: "12345", department: "Test Department", departmentEmail: "test@email.com", pdfExport: true, imageExport: false, reports: [.previewReportData])
+        static let previewOfficerData = Officer(lastAccessed: Date(), hasDepartmentAccess: false, firstName: "Test First Name", lastName: "Test Last Name", badgeNumber: "12345", department: "Test Department", departmentEmail: "test@email.com", pdfExport: true, imageExport: false, reports: [.previewReportData])
     }
 }
 

@@ -13,6 +13,7 @@ import RevenueCat
 struct DewieAppApp: App {
     let container: ModelContainer
     @State var hasDepartmentLicense: Bool = false
+    @StateObject private var subscriptionManager = SubscriptionManager()
     
     init() {
         // create database container from SwiftData
@@ -22,24 +23,15 @@ struct DewieAppApp: App {
             fatalError("Failed to initialize container.")
         }
         
-        // check to see if there is a department license
-        hasDepartmentLicense = UserDefaults.standard.bool(forKey: "hasDepartmentLicense")
-        
-        if !hasDepartmentLicense {
-            Purchases.configure(withAPIKey: "appl_qeHhuzIGQvHBeuLSSBCafrkctxV")
-        }
+
+
         
     }
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                if hasDepartmentLicense {
-                    //DepartmentWelcomeScreen()
-                } else {
-                    //if container.mainContext.model(for: Officer.self)
-                    WelcomeScreen()
-                }
+                LoadingScreen()
             }
         }
         .modelContainer(container)
