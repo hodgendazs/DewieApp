@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @State var officer: Officer?
+    @StateObject var currentOfficer = CurrentOfficer()
     @State var shouldNavigate: Bool = false
     
     var body: some View {
@@ -32,11 +32,10 @@ struct WelcomeScreen: View {
                 .padding(.horizontal)
                 
                 ZStack {
-                    NewOfficerProfileView(officer: $officer, shouldNavigate: $shouldNavigate)
+                    NewOfficerProfileView(currentOfficer: currentOfficer.currentOfficer, shouldNavigate: $shouldNavigate)
                 }
                 .navigationDestination(isPresented: $shouldNavigate) {
-                    if let officer = officer {
-                        HomeScreen(currentOfficer: officer).navigationBarBackButtonHidden(true)                        }
+                    HomeScreen().navigationBarBackButtonHidden(true)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .always))

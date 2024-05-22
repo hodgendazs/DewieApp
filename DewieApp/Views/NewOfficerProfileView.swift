@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct NewOfficerProfileView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) private var modelContext
     
-    @Binding var officer: Officer?
+    @State var currentOfficer: Officer?
     
     // variables that will be added into the new officer
     @State var firstName: String = ""
@@ -62,9 +62,9 @@ struct NewOfficerProfileView: View {
                         HStack {
                             Spacer()
                             Button {
-                                officer = Officer(id: UUID(), lastAccessed: Date(), firstName: firstName, lastName: lastName, badgeNumber: badgeNumber, department: department, departmentEmail: departmentEmail, pdfExport: pdfExport, imageExport: imageExport, reports: [])
+                                currentOfficer = Officer(id: UUID(), lastAccessed: Date(), firstName: firstName, lastName: lastName, badgeNumber: badgeNumber, department: department, departmentEmail: departmentEmail, pdfExport: pdfExport, imageExport: imageExport, reports: [])
                                 
-                                if let newOfficer = officer {
+                                if let newOfficer = currentOfficer {
                                     modelContext.insert(newOfficer)
                                 }
                                 
@@ -92,5 +92,5 @@ struct NewOfficerProfileView: View {
 }
 
 #Preview {
-    NewOfficerProfileView(officer: .constant(.previewOfficerData), shouldNavigate: .constant(false))
+    NewOfficerProfileView(currentOfficer: .previewOfficerData, shouldNavigate: .constant(false))
 }

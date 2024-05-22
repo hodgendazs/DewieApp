@@ -10,97 +10,70 @@ import SwiftData
 import RevenueCatUI
 
 struct OfficerProfileView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) private var modelContext
     @StateObject var subscriptionManager = SubscriptionManager()
-    @Binding var currentOfficer: Officer
+    @State var currentOfficer: Officer
+    
     @State private var shouldLogout: Bool = false
     
-    // profile variables
-    @State var firstName: String = ""
-    @State var lastName: String = ""
-    @State var badgeNumber: String = ""
-    @State var department: String = ""
-    @State var departmentEmail: String = ""
-    @State var pdfExport: Bool = false
-    @State var imageExport: Bool = false
     
     @State var displayPaywall: Bool = false
     
     private var isFormValid: Bool {
-        !firstName.isEmptyOrWhiteSpace && !lastName.isEmptyOrWhiteSpace && !department.isEmptyOrWhiteSpace && !departmentEmail.isEmptyOrWhiteSpace && !badgeNumber.isEmptyOrWhiteSpace
+        !currentOfficer.firstName.isEmptyOrWhiteSpace && !currentOfficer.lastName.isEmptyOrWhiteSpace && !currentOfficer.department.isEmptyOrWhiteSpace && !currentOfficer.departmentEmail.isEmptyOrWhiteSpace && !currentOfficer.badgeNumber.isEmptyOrWhiteSpace
     }
     
     var body: some View {
         ZStack {
             VStack {
                 if currentOfficer.lastName.hasSuffix("s") {
-                    Text("Officer \(lastName)' Profile")
+                    Text("Officer \(currentOfficer.lastName)' Profile")
                 } else {
-                    Text("Officer \(lastName)'s Profile")
+                    Text("Officer \(currentOfficer.lastName)'s Profile")
                 }
                 
                 Form {
                     Section(header: Text("Officer Information (required)").textScale(.secondary)) {
-                        TextField("First Name", text: $firstName)
-                        TextField("Last Name", text: $lastName)
-                        TextField("Badge Number", text: $badgeNumber)
-                        TextField("Department", text: $department)
-                        TextField("Department Email", text: $departmentEmail)
+                        TextField("First Name", text: $currentOfficer.firstName)
+                        TextField("Last Name", text: $currentOfficer.lastName)
+                        TextField("Badge Number", text: $currentOfficer.badgeNumber)
+                        TextField("Department", text: $currentOfficer.department)
+                        TextField("Department Email", text: $currentOfficer.departmentEmail)
                     }
                     
                     Section(header: Text("Export Type").textScale(.secondary)) {
-                        Toggle("PDF Export", isOn: $pdfExport)
-                            .onChange(of: pdfExport) {
-                                imageExport = !pdfExport
+                        Toggle("PDF Export", isOn: $currentOfficer.pdfExport)
+                            .onChange(of: currentOfficer.pdfExport) {
+                                currentOfficer.imageExport = !currentOfficer.pdfExport
                             }
-                        Toggle("Image Export", isOn: $imageExport)
-                            .onChange(of: imageExport) {
-                                pdfExport = !imageExport
+                        Toggle("Image Export", isOn: $currentOfficer.imageExport)
+                            .onChange(of: currentOfficer.imageExport) {
+                                currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
                     
-                    Section(header: Text("Subscribe").textScale(.secondary)) {
-                        HStack {
-                            Spacer()
-                            Button {
-                                displayPaywall = true
-                            } label: {
-                                Text("Subscribe")
+                    if !subscriptionManager.hasActiveSubscription {
+                        Section(header: Text("Subscribe").textScale(.secondary)) {
+                            HStack {
+                                Spacer()
+                                Button {
+                                    displayPaywall = true
+                                } label: {
+                                    Text("Subscribe")
+                                }
+                                Spacer()
                             }
-                            Spacer()
                         }
                     }
-                }
-            }
-            .onAppear {
-                firstName = currentOfficer.firstName
-                lastName = currentOfficer.lastName
-                badgeNumber = currentOfficer.badgeNumber
-                department = currentOfficer.department
-                departmentEmail = currentOfficer.departmentEmail
-                pdfExport = currentOfficer.pdfExport
-                imageExport = currentOfficer.imageExport
-            }
-            
-            .onDisappear {
-                if isFormValid {
-                    currentOfficer.firstName = firstName
-                    currentOfficer.lastName = lastName
-                    currentOfficer.badgeNumber = badgeNumber
-                    currentOfficer.department = department
-                    currentOfficer.departmentEmail = departmentEmail
-                    currentOfficer.pdfExport = pdfExport
-                    currentOfficer.imageExport = imageExport
                 }
             }
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
             }
-            //.presentPaywallIfNeeded(requiredEntitlementIdentifier: "dewie-fullaccess")
         }
     }
 }
 
 #Preview {
-    OfficerProfileView(currentOfficer: .constant(.previewOfficerData))
+    OfficerProfileView(currentOfficer: .previewOfficerData)
 }

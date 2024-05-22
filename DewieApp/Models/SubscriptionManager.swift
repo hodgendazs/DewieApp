@@ -22,6 +22,7 @@ class SubscriptionManager: ObservableObject {
             Purchases.shared.getCustomerInfo { (customerInfo, error) in
                 if customerInfo?.entitlements.all["dewie-fullaccess"]?.isActive == true {
                     self.hasActiveSubscription = true
+                    print("has active sub")
                 }
             }
         }

@@ -6,24 +6,34 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeScreen: View {
-    @State var currentOfficer: Officer
+    @Query var officers: [Officer]
+    @StateObject var currentOfficer = CurrentOfficer()
     @State var shouldLogout: Bool = false
-    
+        
     var body: some View {
         TabView {
             // PriorReportView when it gets created
-            
+            ReportsView()
+                .tabItem { Label("Reports", systemImage: "note.text") }
+                .toolbarBackground(.visible, for: .tabBar)
+                .toolbarBackground(Color.black, for: .tabBar)
             // NewReportView when it gets created
             
             // OfficerProfileView when it gets created
-            OfficerProfileView(currentOfficer: $currentOfficer)
+            OfficerProfileView(currentOfficer: currentOfficer.currentOfficer)
                 .tabItem { Label("Profile", systemImage: "person.crop.circle.fill") }
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarBackground(Color.black, for: .tabBar)
         }
         .tint(.dewieGreen)
+        .onAppear {
+            if !officers.isEmpty {
+                currentOfficer.currentOfficer = officers.first!
+            }
+        }
     }
 }
 
@@ -31,7 +41,7 @@ struct HomeScreen: View {
     MainActor.assumeIsolated {
         let container = singleOfficerPreviewContainer.mainContext.container
         
-        return HomeScreen(currentOfficer: .previewOfficerData)
+        return HomeScreen()
             .modelContainer(container)
     }
 }
