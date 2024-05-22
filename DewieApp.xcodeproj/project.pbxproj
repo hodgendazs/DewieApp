@@ -18,8 +18,13 @@
 		8B34D5622BF71AEF00F5C789 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5612BF71AEF00F5C789 /* String+Extensions.swift */; };
 		8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */; };
 		8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */; };
-		8B34D5682BF71F8200F5C789 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5672BF71F8200F5C789 /* License.swift */; };
 		8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */; };
+		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
+		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
+		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
+		8BB2F1D42BFD5D55005395D7 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D32BFD5D55005395D7 /* RevenueCatUI */; };
+		8BB2F1D82BFD5EE3005395D7 /* BothFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1D72BFD5EE3005395D7 /* BothFalse.swift */; };
+		8BB2F1DA2BFD5EFD005395D7 /* ActiveSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1D92BFD5EFD005395D7 /* ActiveSub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +41,10 @@
 		8B34D5612BF71AEF00F5C789 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewSwiftData.swift; path = DewieOld/Dewie/Models/SwiftData/PreviewSwiftData.swift; sourceTree = SOURCE_ROOT; };
-		8B34D5672BF71F8200F5C789 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficerProfileView.swift; sourceTree = "<group>"; };
+		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		8BB2F1D72BFD5EE3005395D7 /* BothFalse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothFalse.swift; sourceTree = "<group>"; };
+		8BB2F1D92BFD5EFD005395D7 /* ActiveSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */,
+				8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */,
+				8BB2F1D42BFD5D55005395D7 /* RevenueCatUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +114,9 @@
 			children = (
 				8B34D5582BF7124A00F5C789 /* Officer.swift */,
 				8B34D55A2BF7142E00F5C789 /* Report.swift */,
-				8B34D5672BF71F8200F5C789 /* License.swift */,
 				8B34D55C2BF7174600F5C789 /* TypeAliases.swift */,
 				8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */,
+				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +126,8 @@
 			children = (
 				8B34D5112BF7037F00F5C789 /* WelcomeScreen.swift */,
 				8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */,
+				8BB2F1D72BFD5EE3005395D7 /* BothFalse.swift */,
+				8BB2F1D92BFD5EFD005395D7 /* ActiveSub.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -160,6 +172,11 @@
 			dependencies = (
 			);
 			name = DewieApp;
+			packageProductDependencies = (
+				8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */,
+				8BB2F1D12BFD5D55005395D7 /* RevenueCat */,
+				8BB2F1D32BFD5D55005395D7 /* RevenueCatUI */,
+			);
 			productName = DewieApp;
 			productReference = 8B34D4FD2BF7023C00F5C789 /* DewieApp.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +205,9 @@
 				Base,
 			);
 			mainGroup = 8B34D4F42BF7023C00F5C789;
+			packageReferences = (
+				8BB2F1CE2BFD5D55005395D7 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			productRefGroup = 8B34D4FE2BF7023C00F5C789 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -216,15 +236,17 @@
 			files = (
 				8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */,
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
+				8BB2F1D82BFD5EE3005395D7 /* BothFalse.swift in Sources */,
 				8B34D5592BF7124A00F5C789 /* Officer.swift in Sources */,
+				8BB2F1DA2BFD5EFD005395D7 /* ActiveSub.swift in Sources */,
 				8B34D5622BF71AEF00F5C789 /* String+Extensions.swift in Sources */,
 				8B34D55F2BF718E500F5C789 /* NewOfficerProfileView.swift in Sources */,
 				8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */,
 				8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */,
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
+				8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */,
 				8B34D55D2BF7174600F5C789 /* TypeAliases.swift in Sources */,
 				8B34D55B2BF7142E00F5C789 /* Report.swift in Sources */,
-				8B34D5682BF71F8200F5C789 /* License.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +460,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BB2F1CE2BFD5D55005395D7 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.41.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB2F1CE2BFD5D55005395D7 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = ReceiptParser;
+		};
+		8BB2F1D12BFD5D55005395D7 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB2F1CE2BFD5D55005395D7 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		8BB2F1D32BFD5D55005395D7 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB2F1CE2BFD5D55005395D7 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B34D4F52BF7023C00F5C789 /* Project object */;
 }

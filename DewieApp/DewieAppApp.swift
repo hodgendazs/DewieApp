@@ -7,29 +7,37 @@
 
 import SwiftUI
 import SwiftData
+import RevenueCat
 
 @main
 struct DewieAppApp: App {
     let container: ModelContainer
+    @StateObject var subscriptionManager = SubscriptionManager()
     
     init() {
         do {
-            //let config1 = ModelConfiguration(for: Officer.self)
-            //let config2 = ModelConfiguration(for: License.self)
-            container = try ModelContainer(for: Officer.self, License.self)
-            // if we need to do a data migration, then the line above this will change to:
-            // container = try ModelContainer(for: Officer.self, migrationPlan: OfficerMigrationPlan.self)
+            container = try ModelContainer(for: Officer.self)
         } catch {
             fatalError("Failed to initialize container.")
         }
+        
+        Purchases.configure(withAPIKey: "appl_qeHhuzIGQvHBeuLSSBCafrkctxV")
     }
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                WelcomeScreen()
+                if !subscriptionManager.hasActiveDepartmentLicense && !subscriptionManager.hasActiveSubscription {
+                    WelcomeScreen()
+                    //BothFalse()
+                }
+                if subscriptionManager.hasActiveSubscription {
+                    //WelcomeScreen()
+                    ActiveSub()
+                }
             }
         }
         .modelContainer(container)
+        .environmentObject(subscriptionManager)
     }
 }

@@ -7,9 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import RevenueCatUI
 
 struct OfficerProfileView: View {
     @Environment(\.modelContext) var modelContext
+    @StateObject var subscriptionManager = SubscriptionManager()
     @Binding var currentOfficer: Officer
     @State private var shouldLogout: Bool = false
     
@@ -21,6 +23,8 @@ struct OfficerProfileView: View {
     @State var departmentEmail: String = ""
     @State var pdfExport: Bool = false
     @State var imageExport: Bool = false
+    
+    @State var displayPaywall: Bool = false
     
     private var isFormValid: Bool {
         !firstName.isEmptyOrWhiteSpace && !lastName.isEmptyOrWhiteSpace && !department.isEmptyOrWhiteSpace && !departmentEmail.isEmptyOrWhiteSpace && !badgeNumber.isEmptyOrWhiteSpace
@@ -54,6 +58,18 @@ struct OfficerProfileView: View {
                                 pdfExport = !imageExport
                             }
                     }
+                    
+                    Section(header: Text("Subscribe").textScale(.secondary)) {
+                        HStack {
+                            Spacer()
+                            Button {
+                                displayPaywall = true
+                            } label: {
+                                Text("Subscribe")
+                            }
+                            Spacer()
+                        }
+                    }
                 }
             }
             .onAppear {
@@ -76,6 +92,9 @@ struct OfficerProfileView: View {
                     currentOfficer.pdfExport = pdfExport
                     currentOfficer.imageExport = imageExport
                 }
+            }
+            .sheet(isPresented: $displayPaywall) {
+                PaywallView(displayCloseButton: true)
             }
         }
     }
