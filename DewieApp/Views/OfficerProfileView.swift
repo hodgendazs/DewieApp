@@ -96,6 +96,7 @@ struct OfficerProfileView: View {
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
             }
+            //.presentPaywallIfNeeded(requiredEntitlementIdentifier: "dewie-fullaccess")
         }
     }
 }

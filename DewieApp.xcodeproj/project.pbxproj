@@ -19,6 +19,7 @@
 		8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */; };
 		8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */; };
 		8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */; };
+		8B7106942BFDA25A008DED13 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7106932BFDA25A008DED13 /* StoreKit.framework */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -42,6 +43,7 @@
 		8B34D5632BF71E6B00F5C789 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewSwiftData.swift; path = DewieOld/Dewie/Models/SwiftData/PreviewSwiftData.swift; sourceTree = SOURCE_ROOT; };
 		8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficerProfileView.swift; sourceTree = "<group>"; };
+		8B7106932BFDA25A008DED13 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		8BB2F1D72BFD5EE3005395D7 /* BothFalse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothFalse.swift; sourceTree = "<group>"; };
 		8BB2F1D92BFD5EFD005395D7 /* ActiveSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSub.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */,
 				8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */,
 				8BB2F1D42BFD5D55005395D7 /* RevenueCatUI in Frameworks */,
+				8B7106942BFDA25A008DED13 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +70,7 @@
 				8B34D5132BF7044F00F5C789 /* DewieOld */,
 				8B34D4FF2BF7023C00F5C789 /* DewieApp */,
 				8B34D4FE2BF7023C00F5C789 /* Products */,
+				8B7106922BFDA25A008DED13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +158,14 @@
 				8B34D5612BF71AEF00F5C789 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8B7106922BFDA25A008DED13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B7106932BFDA25A008DED13 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,7 +405,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hodgendazs.DewieApp;
+				PRODUCT_BUNDLE_IDENTIFIER = app.dewie.dewieapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
