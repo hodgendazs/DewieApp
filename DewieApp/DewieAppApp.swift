@@ -32,25 +32,29 @@ struct DewieAppApp: App {
             NavigationStack {
                 if currentOfficer.isLoading {
                     LoadingScreen()
-                }
-                
-                if currentOfficer.isSingleOfficerLoadedFromDatabase == true {
-                    HomeScreen()
-                        .environmentObject(currentOfficer)
                 } else {
-                    WelcomeScreen()
+                    decideInitialView()
                 }
-                
-                if currentOfficer.logout == true {
-                    DepartmentLoginScreen()
-                }
-                
-                
             }
         }
         .modelContainer(container)
         .environmentObject(subscriptionManager)
         .environmentObject(currentOfficer)
+    }
+    
+    @ViewBuilder
+    private func decideInitialView() -> some View {
+        if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
+            let _ = print("going to department login screen")
+            DepartmentLoginScreen()
+        } else if currentOfficer.isSingleOfficerLoadedFromDatabase {
+            let _ = print("going to home screen")
+            HomeScreen()
+                .environmentObject(currentOfficer)
+        } else {
+            let _ = print("going to welcome screen")
+            WelcomeScreen()
+        }
     }
 }
 

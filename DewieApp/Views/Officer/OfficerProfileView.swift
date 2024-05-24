@@ -39,11 +39,13 @@ struct OfficerProfileView: View {
                         TextField("Department Email", text: $currentOfficer.departmentEmail)
                             .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
                     }
                     
                     Section(header: Text("Department Code (optional)").textScale(.secondary)) {
                         TextField("Department Code", text: $currentOfficer.departmentCode)
                             .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
                     }
                     
                     Section(header: Text("Export Type").textScale(.secondary)) {
@@ -56,7 +58,7 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    if !subscriptionManager.hasActiveSubscription || subscriptionManager.validateDepartmentCode(departmentCode: currentOfficer.departmentCode) {
+                    if !subscriptionManager.hasActiveSubscription && UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == false {
                         Section(header: Text("Subscribe").textScale(.secondary)) {
                             HStack {
                                 Spacer()
@@ -68,17 +70,19 @@ struct OfficerProfileView: View {
                                 Spacer()
                             }
                         }
-                    }
-                    if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
-                        HStack {
-                            Spacer()
-                            
-                            Button {
-                                shouldLogout.toggle()
-                            } label: {
-                                Text("Logout")
+                    } else if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == true {
+                        Section(header: Text("").textScale(.secondary)) {
+                            HStack {
+                                Spacer()
+                                
+                                Button {
+                                    shouldLogout.toggle()
+                                } label: {
+                                    Text("Logout")
+                                }
+                                Spacer()
+                                
                             }
-                            Spacer()
                         }
                     }
                 }

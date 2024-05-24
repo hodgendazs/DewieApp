@@ -21,7 +21,7 @@ struct LoadingScreen: View {
                     if officers.count > 1 {
                         print("Multiple officers in database. Setting department variable.")
                         UserDefaults.standard.set(true, forKey: "multipleOfficersInDatabase")
-                    } else {
+                    } else if !UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
                         currentOfficer.currentOfficer = officers[0]
                         currentOfficer.isSingleOfficerLoadedFromDatabase = true
                     }

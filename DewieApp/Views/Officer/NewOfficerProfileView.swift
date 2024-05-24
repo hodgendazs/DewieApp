@@ -47,12 +47,14 @@ struct NewOfficerProfileView: View {
                             TextField("Department Email", text: $departmentEmail)
                                 .keyboardType(.emailAddress)
                                 .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
                         }
                         
                         // department code entry
                         Section(header: Text("Department Code (optional)").textScale(.secondary)) {
                             TextField("Department Code", text: $departmentCode)
                                 .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
                         }
                         
                         // export type section
