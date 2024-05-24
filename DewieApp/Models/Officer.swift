@@ -25,11 +25,12 @@ enum OfficerSchemaV1: VersionedSchema {
         @Attribute(.unique) var badgeNumber: String
         var department: String
         var departmentEmail: String
+        var departmentCode: String
         var pdfExport: Bool
         var imageExport: Bool
         var reports: [Report]
         
-        init(id: UUID = UUID(), lastAccessed: Date, firstName: String, lastName: String, badgeNumber: String, department: String, departmentEmail: String, pdfExport: Bool, imageExport: Bool, reports: [Report]) {
+        init(id: UUID = UUID(), lastAccessed: Date, firstName: String, lastName: String, badgeNumber: String, department: String, departmentEmail: String, departmentCode: String, pdfExport: Bool, imageExport: Bool, reports: [Report]) {
             self.id = id
             self.lastAccessed = lastAccessed
             self.firstName = firstName
@@ -37,6 +38,7 @@ enum OfficerSchemaV1: VersionedSchema {
             self.badgeNumber = badgeNumber
             self.department = department
             self.departmentEmail = departmentEmail
+            self.departmentCode = departmentCode
             self.pdfExport = pdfExport
             self.imageExport = imageExport
             self.reports = reports
@@ -47,7 +49,7 @@ enum OfficerSchemaV1: VersionedSchema {
             self.reports.append(report)
         }
         
-        static let previewOfficerData = Officer(lastAccessed: Date(), firstName: "Test First Name", lastName: "Test Last Name", badgeNumber: "12345", department: "Test Department", departmentEmail: "test@email.com", pdfExport: true, imageExport: false, reports: [.previewReportData])
+        static let previewOfficerData = Officer(lastAccessed: Date(), firstName: "Test First Name", lastName: "Test Last Name", badgeNumber: "12345", department: "Test Department", departmentEmail: "test@email.com", departmentCode: "", pdfExport: true, imageExport: false, reports: [.previewReportData])
     }
 }
 

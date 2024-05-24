@@ -10,8 +10,8 @@ import SwiftData
 
 struct NewOfficerProfileView: View {
     @Environment(\.modelContext) private var modelContext
-    
-    @State var currentOfficer: Officer?
+    @EnvironmentObject var currentOfficer: OfficerManager
+    @State var newOfficer: Officer?
     
     // variables that will be added into the new officer
     @State var firstName: String = ""
@@ -19,6 +19,7 @@ struct NewOfficerProfileView: View {
     @State var badgeNumber: String = ""
     @State var department: String = ""
     @State var departmentEmail: String = ""
+    @State var departmentCode: String = ""
     @State var pdfExport: Bool = true
     @State var imageExport: Bool = false
     
@@ -44,6 +45,12 @@ struct NewOfficerProfileView: View {
                             TextField("Badge Number", text: $badgeNumber)
                             TextField("Department", text: $department)
                             TextField("Department Email", text: $departmentEmail)
+                                .keyboardType(.emailAddress)
+                        }
+                        
+                        // department code entry
+                        Section(header: Text("Department Code (optional)").textScale(.secondary)) {
+                            TextField("Department Code", text: $departmentCode)
                         }
                         
                         // export type section
@@ -62,9 +69,9 @@ struct NewOfficerProfileView: View {
                         HStack {
                             Spacer()
                             Button {
-                                currentOfficer = Officer(id: UUID(), lastAccessed: Date(), firstName: firstName, lastName: lastName, badgeNumber: badgeNumber, department: department, departmentEmail: departmentEmail, pdfExport: pdfExport, imageExport: imageExport, reports: [])
+                                newOfficer = Officer(id: UUID(), lastAccessed: Date(), firstName: firstName, lastName: lastName, badgeNumber: badgeNumber, department: department, departmentEmail: departmentEmail, departmentCode: "", pdfExport: pdfExport, imageExport: imageExport, reports: [])
                                 
-                                if let newOfficer = currentOfficer {
+                                if let newOfficer = newOfficer {
                                     modelContext.insert(newOfficer)
                                 }
                                 
@@ -72,6 +79,10 @@ struct NewOfficerProfileView: View {
                                     try modelContext.save()
                                 } catch {
                                     print(error.localizedDescription)
+                                }
+                                currentOfficer.currentOfficer = newOfficer
+                                if newOfficer?.departmentCode == "betaTest" {
+                                    UserDefaults.standard.set(true, forKey: "validDepartmentCode")
                                 }
                                 shouldNavigate = true
                                 
@@ -92,5 +103,5 @@ struct NewOfficerProfileView: View {
 }
 
 #Preview {
-    NewOfficerProfileView(currentOfficer: .previewOfficerData, shouldNavigate: .constant(false))
+    NewOfficerProfileView(newOfficer: .previewOfficerData, shouldNavigate: .constant(false))
 }

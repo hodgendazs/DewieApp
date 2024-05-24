@@ -20,12 +20,11 @@
 		8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */; };
 		8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */; };
 		8B7106942BFDA25A008DED13 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7106932BFDA25A008DED13 /* StoreKit.framework */; };
-		8B7106992BFDACC0008DED13 /* CurrentOfficer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106982BFDACC0008DED13 /* CurrentOfficer.swift */; };
+		8B7106992BFDACC0008DED13 /* OfficerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106982BFDACC0008DED13 /* OfficerManager.swift */; };
 		8B71069B2BFDB4C2008DED13 /* PriorReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B71069A2BFDB4C2008DED13 /* PriorReportView.swift */; };
 		8B71069D2BFDB512008DED13 /* ReportExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B71069C2BFDB512008DED13 /* ReportExport.swift */; };
 		8B71069F2BFDB5B7008DED13 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B71069E2BFDB5B7008DED13 /* ReportsView.swift */; };
 		8B7106A12BFDBA6F008DED13 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106A02BFDBA6F008DED13 /* LoadingScreen.swift */; };
-		8B7106A32BFDBAF3008DED13 /* LoadOfficerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106A22BFDBAF3008DED13 /* LoadOfficerData.swift */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -50,12 +49,11 @@
 		8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewSwiftData.swift; path = DewieOld/Dewie/Models/SwiftData/PreviewSwiftData.swift; sourceTree = SOURCE_ROOT; };
 		8B34D5692BF7255D00F5C789 /* OfficerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficerProfileView.swift; sourceTree = "<group>"; };
 		8B7106932BFDA25A008DED13 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		8B7106982BFDACC0008DED13 /* CurrentOfficer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOfficer.swift; sourceTree = "<group>"; };
+		8B7106982BFDACC0008DED13 /* OfficerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficerManager.swift; sourceTree = "<group>"; };
 		8B71069A2BFDB4C2008DED13 /* PriorReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorReportView.swift; sourceTree = "<group>"; };
 		8B71069C2BFDB512008DED13 /* ReportExport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportExport.swift; sourceTree = "<group>"; };
 		8B71069E2BFDB5B7008DED13 /* ReportsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		8B7106A02BFDBA6F008DED13 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
-		8B7106A22BFDBAF3008DED13 /* LoadOfficerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadOfficerData.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		8BB2F1D72BFD5EE3005395D7 /* BothFalse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothFalse.swift; sourceTree = "<group>"; };
 		8BB2F1D92BFD5EFD005395D7 /* ActiveSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSub.swift; sourceTree = "<group>"; };
@@ -134,8 +132,7 @@
 				8B34D55A2BF7142E00F5C789 /* Report.swift */,
 				8B71069C2BFDB512008DED13 /* ReportExport.swift */,
 				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
-				8B7106982BFDACC0008DED13 /* CurrentOfficer.swift */,
-				8B7106A22BFDBAF3008DED13 /* LoadOfficerData.swift */,
+				8B7106982BFDACC0008DED13 /* OfficerManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7106992BFDACC0008DED13 /* CurrentOfficer.swift in Sources */,
+				8B7106992BFDACC0008DED13 /* OfficerManager.swift in Sources */,
 				8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */,
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
 				8BB2F1D82BFD5EE3005395D7 /* BothFalse.swift in Sources */,
@@ -278,7 +275,6 @@
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
 				8B71069D2BFDB512008DED13 /* ReportExport.swift in Sources */,
 				8B71069B2BFDB4C2008DED13 /* PriorReportView.swift in Sources */,
-				8B7106A32BFDBAF3008DED13 /* LoadOfficerData.swift in Sources */,
 				8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */,
 				8B71069F2BFDB5B7008DED13 /* ReportsView.swift in Sources */,
 				8B34D55D2BF7174600F5C789 /* TypeAliases.swift in Sources */,

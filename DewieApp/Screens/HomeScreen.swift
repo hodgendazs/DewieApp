@@ -9,10 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct HomeScreen: View {
-    @Query var officers: [Officer]
-    @StateObject var currentOfficer = CurrentOfficer()
+    @EnvironmentObject var currentOfficer: OfficerManager
     @State var shouldLogout: Bool = false
-        
+    
     var body: some View {
         TabView {
             // PriorReportView when it gets created
@@ -23,17 +22,14 @@ struct HomeScreen: View {
             // NewReportView when it gets created
             
             // OfficerProfileView when it gets created
-            OfficerProfileView(currentOfficer: currentOfficer.currentOfficer)
-                .tabItem { Label("Profile", systemImage: "person.crop.circle.fill") }
-                .toolbarBackground(.visible, for: .tabBar)
-                .toolbarBackground(Color.black, for: .tabBar)
-        }
-        .tint(.dewieGreen)
-        .onAppear {
-            if !officers.isEmpty {
-                currentOfficer.currentOfficer = officers.first!
+            if let currentOfficer = currentOfficer.currentOfficer {
+                OfficerProfileView(currentOfficer: currentOfficer)
+                    .tabItem { Label("Profile", systemImage: "person.crop.circle.fill") }
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarBackground(Color.black, for: .tabBar)
             }
         }
+        .tint(.dewieGreen)
     }
 }
 

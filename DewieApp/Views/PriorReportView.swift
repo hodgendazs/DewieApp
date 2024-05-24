@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PriorReportView: View {
-    @StateObject var currentOfficer = CurrentOfficer()
+    @StateObject var currentOfficer = OfficerManager()
     let selectedReport: Report?
     @State var exportedReportFile: URL?
     @State var exportedToCameraRoll: Bool = false
@@ -39,7 +39,7 @@ struct PriorReportView: View {
             let exportedPDFLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             
             if let selectedReport = selectedReport {
-                ReportExport.savePDF(officer: currentOfficer.currentOfficer, report: selectedReport)
+                ReportExport.savePDF(officer: currentOfficer.currentOfficer ?? .previewOfficerData, report: selectedReport)
             }
             
             //            if selectedOfficer?.imageExport ?? false {

@@ -13,7 +13,7 @@ import RevenueCat
 struct DewieAppApp: App {
     let container: ModelContainer
     @StateObject var subscriptionManager = SubscriptionManager()
-    @StateObject var currentOfficer = CurrentOfficer()
+    @StateObject var currentOfficer = OfficerManager()
     
     init() {
         do {
@@ -30,27 +30,26 @@ struct DewieAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                if !subscriptionManager.hasActiveDepartmentLicense && !subscriptionManager.hasActiveSubscription {
-                    WelcomeScreen()
-                } else if subscriptionManager.hasActiveSubscription {
+                //                if subscriptionManager.hasActiveSubscription == nil {
+                //                    LoadingScreen()
+                //                }
+                if currentOfficer.isLoading {
+                    LoadingScreen()
+                }
+                
+                if currentOfficer.isSingleOfficerLoadedFromDatabase == true {
                     HomeScreen()
+                        .environmentObject(currentOfficer)
                 } else {
                     WelcomeScreen()
                 }
+                
+                
             }
         }
         .modelContainer(container)
         .environmentObject(subscriptionManager)
         .environmentObject(currentOfficer)
     }
-    
-//    func loadData() -> Officer {
-//        self.container.mainContext.fetch(<#T##descriptor: FetchDescriptor<PersistentModel>##FetchDescriptor<PersistentModel>#>)
-//        return officers.first ?? Officer(lastAccessed: Date(), firstName: "", lastName: "", badgeNumber: "", department: "", departmentEmail: "", pdfExport: true, imageExport: false, reports: [])
-//        
-//        
-//    }
-    
 }
-
 

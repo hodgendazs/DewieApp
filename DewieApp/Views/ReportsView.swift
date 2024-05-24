@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReportsView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var currentOfficer = CurrentOfficer()
+    @StateObject var currentOfficer = OfficerManager()
     @State var currentOfficerReports: [Report]?
     
     @State private var selectedReport: Report?
@@ -41,7 +41,7 @@ struct ReportsView: View {
             }
         }
         .onAppear {
-            currentOfficerReports = currentOfficer.currentOfficer.reports
+            currentOfficerReports = currentOfficer.currentOfficer?.reports
         }
         .sheet(isPresented: Binding(
             get: { showReport },

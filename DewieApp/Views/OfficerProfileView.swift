@@ -41,6 +41,10 @@ struct OfficerProfileView: View {
                         TextField("Department Email", text: $currentOfficer.departmentEmail)
                     }
                     
+                    Section(header: Text("Department Code (optional)").textScale(.secondary)) {
+                        TextField("Department Code", text: $currentOfficer.departmentCode)
+                    }
+                    
                     Section(header: Text("Export Type").textScale(.secondary)) {
                         Toggle("PDF Export", isOn: $currentOfficer.pdfExport)
                             .onChange(of: currentOfficer.pdfExport) {
@@ -51,24 +55,40 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    
-                    if !subscriptionManager.hasActiveSubscription {
-                        Section(header: Text("Subscribe").textScale(.secondary)) {
-                            HStack {
-                                Spacer()
-                                Button {
-                                    displayPaywall = true
-                                } label: {
-                                    Text("Subscribe")
+                    if let hasActiveSubscription = subscriptionManager.hasActiveSubscription {
+                        if !hasActiveSubscription || subscriptionManager.hasActiveDepartmentLicense == false {
+                            Section(header: Text("Subscribe").textScale(.secondary)) {
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        displayPaywall = true
+                                    } label: {
+                                        Text("Subscribe")
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
                             }
+                        }
+                    }
+                    
+                    if UserDefaults.standard.bool(forKey: "validDepartmentCode") {
+                        Button {
+                            //DepartmentLoginScreen()
+                        } label: {
+                            Text("Logout")
                         }
                     }
                 }
             }
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
+            }
+            .onDisappear {
+                if currentOfficer.departmentCode == "departmentBeta" {
+                    if subscriptionManager.hasActiveDepartmentLicense == true {
+                        UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
+                    }
+                }
             }
         }
     }
