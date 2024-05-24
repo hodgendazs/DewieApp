@@ -15,6 +15,8 @@ struct OfficerProfileView: View {
     @State var currentOfficer: Officer
     @Binding var shouldLogout: Bool
     
+    @State var showSubscribe: Bool = true
+    
     @State var displayPaywall: Bool = false
     
     private var isFormValid: Bool {
@@ -58,7 +60,7 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    if !subscriptionManager.hasActiveSubscription && UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == false {
+                    if showSubscribe && UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == false {
                         Section(header: Text("Subscribe").textScale(.secondary)) {
                             HStack {
                                 Spacer()
@@ -94,6 +96,11 @@ struct OfficerProfileView: View {
                 if subscriptionManager.validateDepartmentCode(departmentCode: newValue) {
                     UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
                     subscriptionManager.hasActiveDepartmentLicense = true
+                }
+            }
+            .onChangeOf(subscriptionManager.hasActiveSubscription) { newValue in
+                if newValue == true {
+                    showSubscribe = false
                 }
             }
         }
