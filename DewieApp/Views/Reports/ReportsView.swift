@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReportsView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var currentOfficer = OfficerManager()
+    @State var currentOfficer: Officer
     @State var currentOfficerReports: [Report]?
     
     @State private var selectedReport: Report?
@@ -21,7 +21,6 @@ struct ReportsView: View {
                 if let currentOfficerReports = currentOfficerReports {
                     if !(currentOfficerReports.isEmpty) {
                         List {
-                            
                             ForEach(currentOfficerReports.sorted(by: { $0.date > $1.date })) { report in
                                 Button {
                                     selectedReport = report
@@ -41,13 +40,21 @@ struct ReportsView: View {
             }
         }
         .onAppear {
-            currentOfficerReports = currentOfficer.currentOfficer?.reports
+            currentOfficerReports = currentOfficer.reports
         }
-        .sheet(isPresented: Binding(
-            get: { showReport },
-            set: { showReport = $0 }
-        )) {
-            PriorReportView(selectedReport: selectedReport)
+        //        .onAppear {
+        //            currentOfficerReports = currentOfficer.currentOfficer?.reports
+        //        }
+        //        .sheet(isPresented: Binding(
+        //            get: { showReport },
+        //            set: { showReport = $0 }
+        //        )) {
+        //            PriorReportView(selectedReport: selectedReport)
+        //        }
+        .sheet(isPresented: $showReport) {
+            if let selectedReport = selectedReport {
+                PriorReportView(currentOfficer: currentOfficer, selectedReport: selectedReport)
+            }
         }
     }
 }
@@ -58,7 +65,7 @@ struct ReportsView: View {
         //let currentOfficer = Officer.previewOfficer
         let officerReport = Report.previewReportData
         
-        return ReportsView(currentOfficerReports: [officerReport])
+        return ReportsView(currentOfficer: .previewOfficerData, currentOfficerReports: [officerReport])
             .modelContainer(container)
     }
 }

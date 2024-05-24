@@ -10,8 +10,8 @@ import Foundation
 import RevenueCat
 
 class SubscriptionManager: ObservableObject {
-    @EnvironmentObject var currentOfficer: OfficerManager
-    @Published var hasActiveSubscription: Bool?
+    //@EnvironmentObject var currentOfficer: OfficerManager
+    @Published var hasActiveSubscription: Bool = false
     @Published var hasActiveDepartmentLicense: Bool = false
     
     init() {
@@ -29,7 +29,15 @@ class SubscriptionManager: ObservableObject {
                 }
             }
         }
-
-        
+    }
+    
+    func validateDepartmentCode(departmentCode: String) -> Bool {
+        if departmentCode == "betaTest" {
+            return true
+        } else {
+            UserDefaults.standard.set(false, forKey: "hasValidDepartmentCode")
+            hasActiveDepartmentLicense = false
+            return false
+        }
     }
 }

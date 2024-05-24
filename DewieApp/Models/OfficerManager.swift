@@ -13,4 +13,5 @@ class OfficerManager: ObservableObject {
     @Published var currentOfficer: Officer?
     @Published var isSingleOfficerLoadedFromDatabase: Bool = false
     @Published var isLoading: Bool = true
+    @Published var logout: Bool = false
 }

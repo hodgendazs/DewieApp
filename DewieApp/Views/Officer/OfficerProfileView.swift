@@ -13,9 +13,7 @@ struct OfficerProfileView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var subscriptionManager = SubscriptionManager()
     @State var currentOfficer: Officer
-    
-    @State private var shouldLogout: Bool = false
-    
+    @Binding var shouldLogout: Bool
     
     @State var displayPaywall: Bool = false
     
@@ -39,10 +37,13 @@ struct OfficerProfileView: View {
                         TextField("Badge Number", text: $currentOfficer.badgeNumber)
                         TextField("Department", text: $currentOfficer.department)
                         TextField("Department Email", text: $currentOfficer.departmentEmail)
+                            .keyboardType(.emailAddress)
+                            .textInputAutocapitalization(.never)
                     }
                     
                     Section(header: Text("Department Code (optional)").textScale(.secondary)) {
                         TextField("Department Code", text: $currentOfficer.departmentCode)
+                            .textInputAutocapitalization(.never)
                     }
                     
                     Section(header: Text("Export Type").textScale(.secondary)) {
@@ -55,27 +56,29 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    if let hasActiveSubscription = subscriptionManager.hasActiveSubscription {
-                        if !hasActiveSubscription || subscriptionManager.hasActiveDepartmentLicense == false {
-                            Section(header: Text("Subscribe").textScale(.secondary)) {
-                                HStack {
-                                    Spacer()
-                                    Button {
-                                        displayPaywall = true
-                                    } label: {
-                                        Text("Subscribe")
-                                    }
-                                    Spacer()
+                    if !subscriptionManager.hasActiveSubscription || subscriptionManager.validateDepartmentCode(departmentCode: currentOfficer.departmentCode) {
+                        Section(header: Text("Subscribe").textScale(.secondary)) {
+                            HStack {
+                                Spacer()
+                                Button {
+                                    displayPaywall = true
+                                } label: {
+                                    Text("Subscribe")
                                 }
+                                Spacer()
                             }
                         }
                     }
-                    
-                    if UserDefaults.standard.bool(forKey: "validDepartmentCode") {
-                        Button {
-                            //DepartmentLoginScreen()
-                        } label: {
-                            Text("Logout")
+                    if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
+                        HStack {
+                            Spacer()
+                            
+                            Button {
+                                shouldLogout.toggle()
+                            } label: {
+                                Text("Logout")
+                            }
+                            Spacer()
                         }
                     }
                 }
@@ -83,11 +86,10 @@ struct OfficerProfileView: View {
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
             }
-            .onDisappear {
-                if currentOfficer.departmentCode == "departmentBeta" {
-                    if subscriptionManager.hasActiveDepartmentLicense == true {
-                        UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
-                    }
+            .onChangeOf(currentOfficer.departmentCode) { newValue in
+                if subscriptionManager.validateDepartmentCode(departmentCode: newValue) {
+                    UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
+                    subscriptionManager.hasActiveDepartmentLicense = true
                 }
             }
         }
@@ -95,5 +97,5 @@ struct OfficerProfileView: View {
 }
 
 #Preview {
-    OfficerProfileView(currentOfficer: .previewOfficerData)
+    OfficerProfileView(currentOfficer: .previewOfficerData, shouldLogout: .constant(false))
 }

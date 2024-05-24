@@ -30,9 +30,6 @@ struct DewieAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                //                if subscriptionManager.hasActiveSubscription == nil {
-                //                    LoadingScreen()
-                //                }
                 if currentOfficer.isLoading {
                     LoadingScreen()
                 }
@@ -42,6 +39,10 @@ struct DewieAppApp: App {
                         .environmentObject(currentOfficer)
                 } else {
                     WelcomeScreen()
+                }
+                
+                if currentOfficer.logout == true {
+                    DepartmentLoginScreen()
                 }
                 
                 
