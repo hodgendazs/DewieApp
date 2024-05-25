@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct LoadingScreen: View {
-    @EnvironmentObject var subscriptionManager: SubscriptionManager
+    @StateObject var subscriptionManager = SubscriptionManager()
     @EnvironmentObject var currentOfficer: OfficerManager
     @Query var officers: [Officer]
     
@@ -33,9 +33,9 @@ struct LoadingScreen: View {
                     subscriptionManager.hasActiveDepartmentLicense = true
                 }
                 
-                if currentOfficer.currentOfficer?.departmentCode == "betaTest" {
-                    subscriptionManager.hasActiveDepartmentLicense = true
-                }
+//                if currentOfficer.currentOfficer?.departmentCode == "betaTest" {
+//                    subscriptionManager.hasActiveDepartmentLicense = true
+//                }
                 currentOfficer.isLoading = false
             }
     }

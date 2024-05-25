@@ -11,7 +11,7 @@ import RevenueCatUI
 
 struct OfficerProfileView: View {
     @Environment(\.modelContext) private var modelContext
-    @StateObject var subscriptionManager = SubscriptionManager()
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
     @State var currentOfficer: Officer
     @Binding var shouldLogout: Bool
     
@@ -45,9 +45,27 @@ struct OfficerProfileView: View {
                     }
                     
                     Section(header: Text("Department Code (optional)").textScale(.secondary)) {
-                        TextField("Department Code", text: $currentOfficer.departmentCode)
-                            .textInputAutocapitalization(.never)
-                            .autocorrectionDisabled()
+                        HStack {
+                            TextField("Department Code", text: $currentOfficer.departmentCode)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                            Button {
+                                print(subscriptionManager.hasActiveDepartmentLicense)
+                                if subscriptionManager.hasActiveDepartmentLicense == true {
+                                    currentOfficer.departmentCode = ""
+                                    subscriptionManager.hasActiveDepartmentLicense = false
+                                }
+                                
+                                if subscriptionManager.hasActiveDepartmentLicense == false {
+                                    if subscriptionManager.validateDepartmentCode(departmentCode: currentOfficer.departmentCode) == true {
+                                        subscriptionManager.hasActiveDepartmentLicense = true
+                                        UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
+                                    }
+                                }
+                            } label: {
+                                Text(subscriptionManager.hasActiveDepartmentLicense ? "Clear" : "Submit")
+                            }
+                        }
                     }
                     
                     Section(header: Text("Export Type").textScale(.secondary)) {
@@ -60,7 +78,7 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    if showSubscribe && UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == false {
+                    if showSubscribe && subscriptionManager.hasActiveDepartmentLicense == false {
                         Section(header: Text("Subscribe").textScale(.secondary)) {
                             HStack {
                                 Spacer()
@@ -72,18 +90,18 @@ struct OfficerProfileView: View {
                                 Spacer()
                             }
                         }
-                    } else if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") == true {
-                        Section(header: Text("").textScale(.secondary)) {
-                            HStack {
-                                Spacer()
-                                
-                                Button {
-                                    shouldLogout.toggle()
-                                } label: {
-                                    Text("Logout")
+                        if subscriptionManager.hasActiveDepartmentLicense == true {
+                            Section(header: Text("").textScale(.secondary)) {
+                                HStack {
+                                    Spacer()
+                                    
+                                    Button {
+                                        shouldLogout = true
+                                    } label: {
+                                        Text("Logout")
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
-                                
                             }
                         }
                     }
@@ -91,12 +109,6 @@ struct OfficerProfileView: View {
             }
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
-            }
-            .onChangeOf(currentOfficer.departmentCode) { newValue in
-                if subscriptionManager.validateDepartmentCode(departmentCode: newValue) {
-                    UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
-                    subscriptionManager.hasActiveDepartmentLicense = true
-                }
             }
             .onChangeOf(subscriptionManager.hasActiveSubscription) { newValue in
                 if newValue == true {
