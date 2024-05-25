@@ -10,34 +10,15 @@ import Foundation
 import RevenueCat
 
 class SubscriptionManager: ObservableObject {
-    //@EnvironmentObject var currentOfficer: OfficerManager
     @Published var hasActiveSubscription: Bool = false
     @Published var hasActiveDepartmentLicense: Bool = false
+    @Published var hasFullAccess: Bool = false
     
-    init() {
-        // check if active department license
-        if UserDefaults.standard.bool(forKey: "hasActiveDepartmentLicense") == true {
-            self.hasActiveDepartmentLicense = true
-        } else {
-            // check if active subscription
-            Purchases.shared.getCustomerInfo { (customerInfo, error) in
-                if customerInfo?.entitlements.all["dewie-fullaccess"]?.isActive == true {
-                    self.hasActiveSubscription = true
-                    print("has active sub")
-                } else {
-                    self.hasActiveSubscription = false
-                }
-            }
-        }
-    }
-    
-    func validateDepartmentCode(departmentCode: String) -> Bool {
+    func validateDepartmentCode(departmentCode: String) {
         if departmentCode == "betaTest" {
-            return true
-        } else {
-            UserDefaults.standard.set(false, forKey: "hasValidDepartmentCode")
-            hasActiveDepartmentLicense = false
-            return false
+            UserDefaults.standard.set(true, forKey: "hasValidDepartmentLicense")
+            hasActiveDepartmentLicense = true
+            hasFullAccess = true
         }
     }
 }

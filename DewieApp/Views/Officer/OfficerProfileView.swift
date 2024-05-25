@@ -50,17 +50,16 @@ struct OfficerProfileView: View {
                                 .textInputAutocapitalization(.never)
                                 .autocorrectionDisabled()
                             Button {
-                                print(subscriptionManager.hasActiveDepartmentLicense)
+                                
                                 if subscriptionManager.hasActiveDepartmentLicense == true {
                                     currentOfficer.departmentCode = ""
+                                    UserDefaults.standard.set(false, forKey: "hasValidDepartmentLicense")
                                     subscriptionManager.hasActiveDepartmentLicense = false
+                                    subscriptionManager.hasFullAccess = false
                                 }
                                 
                                 if subscriptionManager.hasActiveDepartmentLicense == false {
-                                    if subscriptionManager.validateDepartmentCode(departmentCode: currentOfficer.departmentCode) == true {
-                                        subscriptionManager.hasActiveDepartmentLicense = true
-                                        UserDefaults.standard.set(true, forKey: "hasValidDepartmentCode")
-                                    }
+                                    subscriptionManager.validateDepartmentCode(departmentCode: currentOfficer.departmentCode)
                                 }
                             } label: {
                                 Text(subscriptionManager.hasActiveDepartmentLicense ? "Clear" : "Submit")
@@ -78,7 +77,7 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
-                    if showSubscribe && subscriptionManager.hasActiveDepartmentLicense == false {
+                    if !subscriptionManager.hasActiveSubscription && !subscriptionManager.hasActiveDepartmentLicense {
                         Section(header: Text("Subscribe").textScale(.secondary)) {
                             HStack {
                                 Spacer()
@@ -109,6 +108,12 @@ struct OfficerProfileView: View {
             }
             .sheet(isPresented: $displayPaywall) {
                 PaywallView(displayCloseButton: true)
+                    .onPurchaseCompleted { customerInfo in
+                        if customerInfo.entitlements["dewie-fullaccess"]?.isActive == true {
+                            subscriptionManager.hasActiveSubscription = true
+                            subscriptionManager.hasFullAccess = true
+                        }
+                    }
             }
             .onChangeOf(subscriptionManager.hasActiveSubscription) { newValue in
                 if newValue == true {

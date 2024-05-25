@@ -10,21 +10,20 @@ import SwiftData
 
 struct HomeScreen: View {
     @EnvironmentObject var currentOfficer: OfficerManager
-    @StateObject var subscriptionManager = SubscriptionManager()
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
     @State var shouldLogout: Bool = false
-    @State var showNewReportView: Bool = false
     
     var body: some View {
         TabView {
-            // PriorReportView when it gets created
+
             if let currentOfficer = currentOfficer.currentOfficer {
                 ReportsView(currentOfficer: currentOfficer)
                     .tabItem { Label("Reports", systemImage: "note.text") }
                     .toolbarBackground(.visible, for: .tabBar)
                     .toolbarBackground(Color.black, for: .tabBar)
             }
-            // NewReportView when it gets created
-            if showNewReportView {
+            
+            if subscriptionManager.hasFullAccess {
                 if let currentOfficer = currentOfficer.currentOfficer {
                     NewReportView(currentOfficer: currentOfficer)
                         .tabItem {
@@ -46,18 +45,6 @@ struct HomeScreen: View {
         .tint(.dewieGreen)
         .navigationDestination(isPresented: $shouldLogout) {
             OfficerListView()
-        }
-        .onChangeOf(currentOfficer.currentOfficer?.departmentCode) { newValue in
-            if subscriptionManager.validateDepartmentCode(departmentCode: newValue ?? "") {
-                showNewReportView = true
-            } else {
-                showNewReportView = false
-            }      
-        }
-        .onAppear {
-            if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
-                showNewReportView = true
-            }
         }
     }
 }

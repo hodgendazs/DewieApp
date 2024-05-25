@@ -14,6 +14,7 @@ struct DewieAppApp: App {
     let container: ModelContainer
     @StateObject var subscriptionManager = SubscriptionManager()
     @StateObject var currentOfficer = OfficerManager()
+    @StateObject var stateManager = StateManager()
     
     init() {
         do {
@@ -30,31 +31,27 @@ struct DewieAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                if currentOfficer.isLoading {
+                if stateManager.navigateToLoadingScreen {
                     LoadingScreen()
-                } else {
-                    decideInitialView()
+                }
+                
+                if stateManager.navigateToWelcomeScreen {
+                    WelcomeScreen()
+                }
+                
+                if stateManager.navigateToHomeScreen {
+                    HomeScreen()
+                }
+                
+                if stateManager.navigateToDepartmentLoginScreen {
+                    DepartmentLoginScreen()
                 }
             }
         }
         .modelContainer(container)
         .environmentObject(subscriptionManager)
         .environmentObject(currentOfficer)
-    }
-    
-    @ViewBuilder
-    private func decideInitialView() -> some View {
-        if UserDefaults.standard.bool(forKey: "hasValidDepartmentCode") {
-            let _ = print("going to department login screen")
-            DepartmentLoginScreen()
-        } else if currentOfficer.isSingleOfficerLoadedFromDatabase {
-            let _ = print("going to home screen")
-            HomeScreen()
-                .environmentObject(currentOfficer)
-        } else {
-            let _ = print("going to welcome screen")
-            WelcomeScreen()
-        }
+        .environmentObject(stateManager)
     }
 }
 

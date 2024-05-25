@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @StateObject var currentOfficer = OfficerManager()
+    @EnvironmentObject var currentOfficer: OfficerManager
     @State var shouldNavigate: Bool = false
     
     var body: some View {

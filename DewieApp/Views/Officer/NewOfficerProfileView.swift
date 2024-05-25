@@ -11,9 +11,9 @@ import SwiftData
 struct NewOfficerProfileView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var currentOfficer: OfficerManager
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
     @State var newOfficer: Officer?
     
-    // variables that will be added into the new officer
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var badgeNumber: String = ""
@@ -85,9 +85,9 @@ struct NewOfficerProfileView: View {
                                     print(error.localizedDescription)
                                 }
                                 currentOfficer.currentOfficer = newOfficer
-                                if newOfficer?.departmentCode == "betaTest" {
-                                    UserDefaults.standard.set(true, forKey: "validDepartmentCode")
-                                }
+                                
+                                subscriptionManager.validateDepartmentCode(departmentCode: departmentCode)
+                                
                                 shouldNavigate = true
                                 
                             } label: {
