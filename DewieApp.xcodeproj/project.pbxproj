@@ -35,6 +35,8 @@
 		8BA381BC2C01A56400C69814 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BB2C01A56400C69814 /* LoadingScreen.swift */; };
 		8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BD2C01AB2C00C69814 /* StateManager.swift */; };
 		8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BF2C0675C900C69814 /* ReportManager.swift */; };
+		8BA381C22C06816500C69814 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381C12C06816500C69814 /* License.swift */; };
+		8BA381C42C0682C300C69814 /* LicenseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381C32C0682C300C69814 /* LicenseManager.swift */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -72,6 +74,8 @@
 		8BA381BB2C01A56400C69814 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8BA381BD2C01AB2C00C69814 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		8BA381BF2C0675C900C69814 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
+		8BA381C12C06816500C69814 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		8BA381C32C0682C300C69814 /* LicenseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseManager.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +117,6 @@
 				8B34D5102BF7033300F5C789 /* Info.plist */,
 				8B34D5002BF7023C00F5C789 /* DewieAppApp.swift */,
 				8B34D5542BF7051100F5C789 /* Models */,
-				8B34D5602BF71ADD00F5C789 /* Extensions */,
 				8B34D5552BF7051600F5C789 /* Screens */,
 				8B34D5562BF7051C00F5C789 /* Views */,
 				8B34D5572BF7052500F5C789 /* PreviewContent */,
@@ -134,15 +137,12 @@
 		8B34D5542BF7051100F5C789 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8BA381C62C0682E200C69814 /* DataModels */,
+				8BA381C52C0682C900C69814 /* Managers */,
 				8B34D5652BF71EEE00F5C789 /* PreviewSwiftData.swift */,
 				8B34D55C2BF7174600F5C789 /* TypeAliases.swift */,
-				8B34D5582BF7124A00F5C789 /* Officer.swift */,
-				8B34D55A2BF7142E00F5C789 /* Report.swift */,
 				8B71069C2BFDB512008DED13 /* ReportExport.swift */,
-				8BA381BD2C01AB2C00C69814 /* StateManager.swift */,
-				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
-				8B7106982BFDACC0008DED13 /* OfficerManager.swift */,
-				8BA381BF2C0675C900C69814 /* ReportManager.swift */,
+				8B34D5602BF71ADD00F5C789 /* Extensions */,
 				8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */,
 			);
 			path = Models;
@@ -221,6 +221,28 @@
 				8B7106AD2C0051CA008DED13 /* WalkAndTurnTestView.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8BA381C52C0682C900C69814 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8B7106982BFDACC0008DED13 /* OfficerManager.swift */,
+				8BA381BF2C0675C900C69814 /* ReportManager.swift */,
+				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
+				8BA381BD2C01AB2C00C69814 /* StateManager.swift */,
+				8BA381C32C0682C300C69814 /* LicenseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8BA381C62C0682E200C69814 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				8BA381C12C06816500C69814 /* License.swift */,
+				8B34D55A2BF7142E00F5C789 /* Report.swift */,
+				8B34D5582BF7124A00F5C789 /* Officer.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +327,8 @@
 				8B7106992BFDACC0008DED13 /* OfficerManager.swift in Sources */,
 				8B7106A52C00507A008DED13 /* DepartmentLoginScreen.swift in Sources */,
 				8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */,
+				8BA381C22C06816500C69814 /* License.swift in Sources */,
+				8BA381C42C0682C300C69814 /* LicenseManager.swift in Sources */,
 				8B7106B42C006139008DED13 /* DepartmentReturningOfficerScreen.swift in Sources */,
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
 				8B7106AF2C0051CA008DED13 /* OneLegStandTestView.swift in Sources */,
