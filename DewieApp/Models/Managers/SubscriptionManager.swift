@@ -13,6 +13,8 @@ class SubscriptionManager: ObservableObject {
     @Published var hasActiveSubscription: Bool = false
     @Published var hasActiveDepartmentLicense: Bool = false
     @Published var hasFullAccess: Bool = false
+    @Published var departmentLicenseCode: String = ""
+    @Published var departmentLicenseExpirationDate: String = ""
     
     func validateDepartmentCode(departmentCode: String) {
         if departmentCode == "betaTest" {

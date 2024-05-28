@@ -36,7 +36,6 @@
 		8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BD2C01AB2C00C69814 /* StateManager.swift */; };
 		8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BF2C0675C900C69814 /* ReportManager.swift */; };
 		8BA381C22C06816500C69814 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381C12C06816500C69814 /* License.swift */; };
-		8BA381C42C0682C300C69814 /* LicenseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381C32C0682C300C69814 /* LicenseManager.swift */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -75,7 +74,6 @@
 		8BA381BD2C01AB2C00C69814 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		8BA381BF2C0675C900C69814 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		8BA381C12C06816500C69814 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
-		8BA381C32C0682C300C69814 /* LicenseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseManager.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,7 +228,6 @@
 				8BA381BF2C0675C900C69814 /* ReportManager.swift */,
 				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
 				8BA381BD2C01AB2C00C69814 /* StateManager.swift */,
-				8BA381C32C0682C300C69814 /* LicenseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				8B7106A52C00507A008DED13 /* DepartmentLoginScreen.swift in Sources */,
 				8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */,
 				8BA381C22C06816500C69814 /* License.swift in Sources */,
-				8BA381C42C0682C300C69814 /* LicenseManager.swift in Sources */,
 				8B7106B42C006139008DED13 /* DepartmentReturningOfficerScreen.swift in Sources */,
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
 				8B7106AF2C0051CA008DED13 /* OneLegStandTestView.swift in Sources */,
