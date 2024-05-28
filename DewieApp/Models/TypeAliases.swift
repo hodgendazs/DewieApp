@@ -7,3 +7,4 @@
 
 typealias Officer = OfficerSchemaV1.Officer
 typealias Report = ReportSchemaV1.Report
+typealias License = LicenseSchemaV1.License
