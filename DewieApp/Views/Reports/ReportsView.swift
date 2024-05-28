@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReportsView: View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var reportManager: ReportManager
     @State var currentOfficer: Officer
     @State var currentOfficerReports: [Report]?
     
@@ -23,7 +24,7 @@ struct ReportsView: View {
                         List {
                             ForEach(currentOfficerReports.sorted(by: { $0.date > $1.date })) { report in
                                 Button {
-                                    selectedReport = report
+                                    reportManager.selectedReport = report
                                     showReport = true
                                 } label: {
                                     Text("Case Number: \(report.caseNumber)")
@@ -42,19 +43,8 @@ struct ReportsView: View {
         .onAppear {
             currentOfficerReports = currentOfficer.reports
         }
-        //        .onAppear {
-        //            currentOfficerReports = currentOfficer.currentOfficer?.reports
-        //        }
-        //        .sheet(isPresented: Binding(
-        //            get: { showReport },
-        //            set: { showReport = $0 }
-        //        )) {
-        //            PriorReportView(selectedReport: selectedReport)
-        //        }
         .sheet(isPresented: $showReport) {
-            if let selectedReport = selectedReport {
-                PriorReportView(currentOfficer: currentOfficer, selectedReport: selectedReport)
-            }
+            PriorReportView()
         }
     }
 }

@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct PriorReportView: View {
-    @State var currentOfficer: Officer
-    @State var selectedReport: Report
+    @EnvironmentObject var officerManager: OfficerManager
+    @EnvironmentObject var reportManager: ReportManager
     @State var exportedReportFile: URL?
     @State var exportedToCameraRoll: Bool = false
     
@@ -17,14 +18,17 @@ struct PriorReportView: View {
         
         VStack {
             Text("Prior Report")
-            Text("Report Id: \(selectedReport.id)")
-            Text("Officer Id: \(selectedReport.officerId)")
-            
+            Text("Case Number: \(reportManager.selectedReport?.caseNumber ?? "")")
+            Text("Officer Id: \(officerManager.currentOfficer?.id ?? UUID())")
+            Text("Report Officer Id: \(reportManager.selectedReport?.officerId ?? UUID())")
+            Text("Report Date: \(reportManager.selectedReport?.date ?? "No Date")")
             
             if let exportedPDF = exportedReportFile {
                 ShareLink("Export PDF", item: exportedPDF)
                     .buttonStyle(.borderedProminent)
             }
+            
+            
             Button("Export Image") {
                 if let exportedPDF = exportedReportFile {
                     ReportExport.convertPdfToImage(url: exportedPDF)
@@ -37,16 +41,12 @@ struct PriorReportView: View {
         .onAppear {
             let exportedPDFLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             
-                ReportExport.savePDF(officer: currentOfficer, report: selectedReport)
-            
-            //            if selectedOfficer?.imageExport ?? false {
-            //                if let exportedPDFLocation {
-            //                    ReportExport.convertPdfToImage(url: exportedPDFLocation)
-            //                }
-            //            }
-            
-            exportedReportFile = exportedPDFLocation?.appendingPathComponent("\(selectedReport.caseNumber).pdf")
-            
+            if let report = reportManager.selectedReport {
+                if let officer = officerManager.currentOfficer {
+                    ReportExport.savePDF(officer: officer, report: report)
+                    exportedReportFile = exportedPDFLocation?.appendingPathComponent("\(report.caseNumber).pdf")
+                }
+            }
         }
     }
 }

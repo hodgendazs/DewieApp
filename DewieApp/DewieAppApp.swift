@@ -15,6 +15,7 @@ struct DewieAppApp: App {
     @StateObject var subscriptionManager = SubscriptionManager()
     @StateObject var currentOfficer = OfficerManager()
     @StateObject var stateManager = StateManager()
+    @StateObject var reportManager = ReportManager()
     
     init() {
         do {
@@ -52,6 +53,7 @@ struct DewieAppApp: App {
         .environmentObject(subscriptionManager)
         .environmentObject(currentOfficer)
         .environmentObject(stateManager)
+        .environmentObject(reportManager)
     }
 }
 

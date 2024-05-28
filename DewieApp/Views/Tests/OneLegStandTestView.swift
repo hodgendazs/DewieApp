@@ -145,6 +145,8 @@ struct OneLegStandNotesTab: View {
                 .padding(.top, 50)
             
             TextEditor(text: $oneLegStandNotes)
+                .scrollContentBackground(.hidden)
+                .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 7.0))
                 .padding()
                 .foregroundStyle(.black)

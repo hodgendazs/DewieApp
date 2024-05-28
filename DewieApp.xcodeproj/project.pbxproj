@@ -34,6 +34,7 @@
 		8B7106B62C006661008DED13 /* DewieFormGFPD.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */; };
 		8BA381BC2C01A56400C69814 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BB2C01A56400C69814 /* LoadingScreen.swift */; };
 		8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BD2C01AB2C00C69814 /* StateManager.swift */; };
+		8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BF2C0675C900C69814 /* ReportManager.swift */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -70,6 +71,7 @@
 		8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DewieFormGFPD.pdf; sourceTree = "<group>"; };
 		8BA381BB2C01A56400C69814 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8BA381BD2C01AB2C00C69814 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		8BA381BF2C0675C900C69814 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,10 +139,11 @@
 				8B34D5582BF7124A00F5C789 /* Officer.swift */,
 				8B34D55A2BF7142E00F5C789 /* Report.swift */,
 				8B71069C2BFDB512008DED13 /* ReportExport.swift */,
+				8BA381BD2C01AB2C00C69814 /* StateManager.swift */,
 				8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */,
 				8B7106982BFDACC0008DED13 /* OfficerManager.swift */,
+				8BA381BF2C0675C900C69814 /* ReportManager.swift */,
 				8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */,
-				8BA381BD2C01AB2C00C69814 /* StateManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */,
 				8B71069D2BFDB512008DED13 /* ReportExport.swift in Sources */,
 				8B71069B2BFDB4C2008DED13 /* PriorReportView.swift in Sources */,
+				8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */,
 				8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */,
 				8B71069F2BFDB5B7008DED13 /* ReportsView.swift in Sources */,
 				8B7106B02C0051CA008DED13 /* WalkAndTurnTestView.swift in Sources */,

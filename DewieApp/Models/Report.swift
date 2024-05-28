@@ -20,12 +20,12 @@ enum ReportSchemaV1: VersionedSchema {
         var id: UUID
         var caseNumber: String
         var officerId: UUID
-        var date: Date
+        var date: String
         var hgnTestResults: HGN?
         var walkAndTurnResults: WalkAndTurn?
         var oneLegStandResults: OneLegStand?
         
-        init(id: UUID = UUID(), caseNumber: String, officerId: UUID, date: Date = Date(), hgnTestResults: HGN? = nil, walkAndTurnResults: WalkAndTurn? = nil, oneLegStandResults: OneLegStand? = nil) {
+        init(id: UUID = UUID(), caseNumber: String, officerId: UUID, date: String, hgnTestResults: HGN? = nil, walkAndTurnResults: WalkAndTurn? = nil, oneLegStandResults: OneLegStand? = nil) {
             self.id = id
             self.caseNumber = caseNumber
             self.officerId = officerId
@@ -112,7 +112,7 @@ enum ReportSchemaV1: VersionedSchema {
             }
         }
         
-        static let previewReportData = Report(caseNumber: "12-345", officerId: UUID(), hgnTestResults: Report.HGN(equalPupilSize: false, noRestingNystagmus: false, equalTracking: false, lackLeftEye: false, lackRightEye: false, distinctLeftEye: false, distinctRightEye: false, onsetLeftEye: false, onsetRightEye: false, vgnNotPresent: true, vgnPresent: false, hgnNotes: "HGN NOTES"), walkAndTurnResults: Report.WalkAndTurn(startsTooSoon: false, cannotRemainInStartingPosition: false, stepsOffTheLine: false, missesHeelToToe: false, raisesArmForBalance: false, stops: false, incorrectNumberOfSteps: false, numberOfIncorrectNumberOfSteps: "0", turnNotAsDescribed: false, improperTurnDescription: "", walkAndTurnNotes: "WALK AND TURN NOTES"), oneLegStandResults: Report.OneLegStand(putsFootDown: false, sways: false, raisesArmsForBalance: false, hops: false, oneLegStandNotes: "ONE LEG STAND NOTES"))
+        static let previewReportData = Report(caseNumber: "12-345", officerId: UUID(), date: "TEST DATE", hgnTestResults: Report.HGN(equalPupilSize: false, noRestingNystagmus: false, equalTracking: false, lackLeftEye: false, lackRightEye: false, distinctLeftEye: false, distinctRightEye: false, onsetLeftEye: false, onsetRightEye: false, vgnNotPresent: true, vgnPresent: false, hgnNotes: "HGN NOTES"), walkAndTurnResults: Report.WalkAndTurn(startsTooSoon: false, cannotRemainInStartingPosition: false, stepsOffTheLine: false, missesHeelToToe: false, raisesArmForBalance: false, stops: false, incorrectNumberOfSteps: false, numberOfIncorrectNumberOfSteps: "0", turnNotAsDescribed: false, improperTurnDescription: "", walkAndTurnNotes: "WALK AND TURN NOTES"), oneLegStandResults: Report.OneLegStand(putsFootDown: false, sways: false, raisesArmsForBalance: false, hops: false, oneLegStandNotes: "ONE LEG STAND NOTES"))
     }
 }
 

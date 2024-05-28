@@ -45,7 +45,7 @@ enum OfficerSchemaV1: VersionedSchema {
         }
         
         func addReport(caseNumber: String, officerId: UUID, hgnTestResults: Report.HGN? = nil, walkAndTurnTestResults: Report.WalkAndTurn? = nil, oneLegStandTestResults: Report.OneLegStand?) {
-            let report = Report(caseNumber: caseNumber, officerId: self.id, hgnTestResults: hgnTestResults, walkAndTurnResults: walkAndTurnTestResults, oneLegStandResults: oneLegStandTestResults)
+            let report = Report(caseNumber: caseNumber, officerId: self.id, date: Date().formatted(date: .long, time: .shortened), hgnTestResults: hgnTestResults, walkAndTurnResults: walkAndTurnTestResults, oneLegStandResults: oneLegStandTestResults)
             self.reports.append(report)
         }
         

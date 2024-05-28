@@ -194,6 +194,8 @@ struct WalkAndTurnNotesTab: View {
                 .padding(.top, 50)
             
             TextEditor(text: $walkAndTurnNotes)
+                .scrollContentBackground(.hidden)
+                .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 7.0))
                 .padding()
                 .foregroundStyle(.black)
