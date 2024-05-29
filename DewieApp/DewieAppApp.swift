@@ -8,21 +8,22 @@
 import SwiftUI
 import SwiftData
 import RevenueCat
+import Supabase
 
 @main
 struct DewieAppApp: App {
-    let container: ModelContainer
+    //let container: ModelContainer
     @StateObject var subscriptionManager = SubscriptionManager()
     @StateObject var currentOfficer = OfficerManager()
     @StateObject var stateManager = StateManager()
     @StateObject var reportManager = ReportManager()
     
     init() {
-        do {
-            container = try ModelContainer(for: Officer.self)
-        } catch {
-            fatalError("Failed to initialize container.")
-        }
+//        do {
+//            container = try ModelContainer(for: Officer.self, License.self)
+//        } catch {
+//            fatalError("Failed to initialize container.")
+//        }
         
         Purchases.configure(withAPIKey: "appl_qeHhuzIGQvHBeuLSSBCafrkctxV")
         
@@ -33,7 +34,8 @@ struct DewieAppApp: App {
         WindowGroup {
             NavigationStack {
                 if stateManager.navigateToLoadingScreen {
-                    LoadingScreen()
+                    LoginView()
+                    //LoadingScreen()
                 }
                 
                 if stateManager.navigateToWelcomeScreen {
@@ -49,7 +51,7 @@ struct DewieAppApp: App {
                 }
             }
         }
-        .modelContainer(container)
+        //.modelContainer(container)
         .environmentObject(subscriptionManager)
         .environmentObject(currentOfficer)
         .environmentObject(stateManager)

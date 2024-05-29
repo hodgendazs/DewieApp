@@ -65,3 +65,8 @@ enum OfficerSchemaV1: VersionedSchema {
 //
 //    static let migrateV1toV2 = MigrationStage.lightweight(fromVersion: OfficerSchemaV1.self, toVersion: OfficerSchemaV2.self)
 //}
+
+enum OfficerRanks: String, CaseIterable, Identifiable {
+    case officer, sergeant, lieutenant, deputy, trooper
+    var id: Self { self }
+}

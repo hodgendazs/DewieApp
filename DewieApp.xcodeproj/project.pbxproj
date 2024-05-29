@@ -32,6 +32,18 @@
 		8B7106B22C005F31008DED13 /* OfficerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106B12C005F30008DED13 /* OfficerListView.swift */; };
 		8B7106B42C006139008DED13 /* DepartmentReturningOfficerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106B32C006139008DED13 /* DepartmentReturningOfficerScreen.swift */; };
 		8B7106B62C006661008DED13 /* DewieFormGFPD.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */; };
+		8B81E41F2C06DD58008080ED /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E41E2C06DD58008080ED /* Auth */; };
+		8B81E4212C06DD58008080ED /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4202C06DD58008080ED /* Functions */; };
+		8B81E4232C06DD58008080ED /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4222C06DD58008080ED /* PostgREST */; };
+		8B81E4252C06DD58008080ED /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4242C06DD58008080ED /* Realtime */; };
+		8B81E4272C06DD58008080ED /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4262C06DD58008080ED /* Storage */; };
+		8B81E4292C06DD58008080ED /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4282C06DD58008080ED /* Supabase */; };
+		8B81E42B2C06DEA6008080ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E42A2C06DEA6008080ED /* LoginView.swift */; };
+		8B81E42E2C06E189008080ED /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E42D2C06E189008080ED /* Auth */; };
+		8B81E4302C06E189008080ED /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E42F2C06E189008080ED /* Functions */; };
+		8B81E4322C06E189008080ED /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4312C06E189008080ED /* PostgREST */; };
+		8B81E4342C06E189008080ED /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4332C06E189008080ED /* Realtime */; };
+		8B81E4362C06E189008080ED /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B81E4352C06E189008080ED /* Storage */; };
 		8BA381BC2C01A56400C69814 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BB2C01A56400C69814 /* LoadingScreen.swift */; };
 		8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BD2C01AB2C00C69814 /* StateManager.swift */; };
 		8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BF2C0675C900C69814 /* ReportManager.swift */; };
@@ -41,6 +53,12 @@
 		8BA381CD2C06DB3F00C69814 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381CC2C06DB3F00C69814 /* PostgREST */; };
 		8BA381CF2C06DB3F00C69814 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381CE2C06DB3F00C69814 /* Realtime */; };
 		8BA381D12C06DB3F00C69814 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381D02C06DB3F00C69814 /* Storage */; };
+		8BA381D32C06DBEB00C69814 /* SupabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381D22C06DBEB00C69814 /* SupabaseHelper.swift */; };
+		8BA381D52C06DC5E00C69814 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381D42C06DC5E00C69814 /* Auth */; };
+		8BA381D72C06DC5E00C69814 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381D62C06DC5E00C69814 /* Functions */; };
+		8BA381D92C06DC5E00C69814 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381D82C06DC5E00C69814 /* PostgREST */; };
+		8BA381DB2C06DC5E00C69814 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381DA2C06DC5E00C69814 /* Realtime */; };
+		8BA381DD2C06DC5E00C69814 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 8BA381DC2C06DC5E00C69814 /* Storage */; };
 		8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */; };
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
@@ -75,10 +93,12 @@
 		8B7106B12C005F30008DED13 /* OfficerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficerListView.swift; sourceTree = "<group>"; };
 		8B7106B32C006139008DED13 /* DepartmentReturningOfficerScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentReturningOfficerScreen.swift; sourceTree = "<group>"; };
 		8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DewieFormGFPD.pdf; sourceTree = "<group>"; };
+		8B81E42A2C06DEA6008080ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8BA381BB2C01A56400C69814 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8BA381BD2C01AB2C00C69814 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		8BA381BF2C0675C900C69814 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		8BA381C12C06816500C69814 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		8BA381D22C06DBEB00C69814 /* SupabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseHelper.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,15 +107,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B81E4292C06DD58008080ED /* Supabase in Frameworks */,
+				8BA381D92C06DC5E00C69814 /* PostgREST in Frameworks */,
 				8BA381CB2C06DB3F00C69814 /* Functions in Frameworks */,
+				8B81E4342C06E189008080ED /* Realtime in Frameworks */,
+				8B81E4322C06E189008080ED /* PostgREST in Frameworks */,
+				8B81E4272C06DD58008080ED /* Storage in Frameworks */,
+				8B81E4212C06DD58008080ED /* Functions in Frameworks */,
+				8BA381DD2C06DC5E00C69814 /* Storage in Frameworks */,
 				8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */,
 				8BA381CD2C06DB3F00C69814 /* PostgREST in Frameworks */,
 				8BA381CF2C06DB3F00C69814 /* Realtime in Frameworks */,
 				8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */,
+				8B81E4302C06E189008080ED /* Functions in Frameworks */,
+				8B81E4362C06E189008080ED /* Storage in Frameworks */,
 				8BB2F1D42BFD5D55005395D7 /* RevenueCatUI in Frameworks */,
+				8B81E4252C06DD58008080ED /* Realtime in Frameworks */,
+				8B81E41F2C06DD58008080ED /* Auth in Frameworks */,
 				8BA381D12C06DB3F00C69814 /* Storage in Frameworks */,
 				8BA381C92C06DB3F00C69814 /* Auth in Frameworks */,
+				8BA381D52C06DC5E00C69814 /* Auth in Frameworks */,
+				8B81E4232C06DD58008080ED /* PostgREST in Frameworks */,
+				8B81E42E2C06E189008080ED /* Auth in Frameworks */,
 				8B7106942BFDA25A008DED13 /* StoreKit.framework in Frameworks */,
+				8BA381DB2C06DC5E00C69814 /* Realtime in Frameworks */,
+				8BA381D72C06DC5E00C69814 /* Functions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +188,7 @@
 				8B71069C2BFDB512008DED13 /* ReportExport.swift */,
 				8B34D5602BF71ADD00F5C789 /* Extensions */,
 				8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */,
+				8BA381D22C06DBEB00C69814 /* SupabaseHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +211,7 @@
 				8B7106AA2C0051C1008DED13 /* Tests */,
 				8B7106A92C0051A6008DED13 /* Officer */,
 				8B7106A82C00519A008DED13 /* Reports */,
+				8B81E42A2C06DEA6008080ED /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +315,22 @@
 				8BA381CC2C06DB3F00C69814 /* PostgREST */,
 				8BA381CE2C06DB3F00C69814 /* Realtime */,
 				8BA381D02C06DB3F00C69814 /* Storage */,
+				8BA381D42C06DC5E00C69814 /* Auth */,
+				8BA381D62C06DC5E00C69814 /* Functions */,
+				8BA381D82C06DC5E00C69814 /* PostgREST */,
+				8BA381DA2C06DC5E00C69814 /* Realtime */,
+				8BA381DC2C06DC5E00C69814 /* Storage */,
+				8B81E41E2C06DD58008080ED /* Auth */,
+				8B81E4202C06DD58008080ED /* Functions */,
+				8B81E4222C06DD58008080ED /* PostgREST */,
+				8B81E4242C06DD58008080ED /* Realtime */,
+				8B81E4262C06DD58008080ED /* Storage */,
+				8B81E4282C06DD58008080ED /* Supabase */,
+				8B81E42D2C06E189008080ED /* Auth */,
+				8B81E42F2C06E189008080ED /* Functions */,
+				8B81E4312C06E189008080ED /* PostgREST */,
+				8B81E4332C06E189008080ED /* Realtime */,
+				8B81E4352C06E189008080ED /* Storage */,
 			);
 			productName = DewieApp;
 			productReference = 8B34D4FD2BF7023C00F5C789 /* DewieApp.app */;
@@ -350,6 +404,7 @@
 				8B34D5622BF71AEF00F5C789 /* String+Extensions.swift in Sources */,
 				8B34D55F2BF718E500F5C789 /* NewOfficerProfileView.swift in Sources */,
 				8B34D5662BF71EEE00F5C789 /* PreviewSwiftData.swift in Sources */,
+				8BA381D32C06DBEB00C69814 /* SupabaseHelper.swift in Sources */,
 				8B7106B22C005F31008DED13 /* OfficerListView.swift in Sources */,
 				8B34D5642BF71E6B00F5C789 /* HomeScreen.swift in Sources */,
 				8B34D5012BF7023C00F5C789 /* DewieAppApp.swift in Sources */,
@@ -358,6 +413,7 @@
 				8B71069B2BFDB4C2008DED13 /* PriorReportView.swift in Sources */,
 				8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */,
 				8BB2F1CD2BFD5D3F005395D7 /* SubscriptionManager.swift in Sources */,
+				8B81E42B2C06DEA6008080ED /* LoginView.swift in Sources */,
 				8B71069F2BFDB5B7008DED13 /* ReportsView.swift in Sources */,
 				8B7106B02C0051CA008DED13 /* WalkAndTurnTestView.swift in Sources */,
 				8B34D55D2BF7174600F5C789 /* TypeAliases.swift in Sources */,
@@ -601,6 +657,61 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B81E41E2C06DD58008080ED /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		8B81E4202C06DD58008080ED /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		8B81E4222C06DD58008080ED /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		8B81E4242C06DD58008080ED /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		8B81E4262C06DD58008080ED /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		8B81E4282C06DD58008080ED /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		8B81E42D2C06E189008080ED /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		8B81E42F2C06E189008080ED /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		8B81E4312C06E189008080ED /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		8B81E4332C06E189008080ED /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		8B81E4352C06E189008080ED /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
 		8BA381C82C06DB3F00C69814 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
@@ -622,6 +733,31 @@
 			productName = Realtime;
 		};
 		8BA381D02C06DB3F00C69814 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		8BA381D42C06DC5E00C69814 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		8BA381D62C06DC5E00C69814 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		8BA381D82C06DC5E00C69814 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		8BA381DA2C06DC5E00C69814 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		8BA381DC2C06DC5E00C69814 /* Storage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BA381C72C06DB3F00C69814 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Storage;
