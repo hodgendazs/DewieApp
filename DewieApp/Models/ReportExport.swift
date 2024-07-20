@@ -24,7 +24,7 @@ class ReportExport {
            let savedImage = UIImage(data: imageData) {
             departmentLogo = savedImage
         }
-
+        
         // update annotations
         for pageNum in 0..<pdfDocument.pageCount {
             guard let page = pdfDocument.page(at: pageNum) else {
@@ -39,7 +39,7 @@ class ReportExport {
                         print("image not loaded")
                         return
                     }
-
+                    
                     print("image loaded")
                     let fixedSize = CGSize(width: 98, height: 98)
                     
@@ -245,50 +245,62 @@ class ReportExport {
     
     
     
-    static func convertPdfToImage(url: URL) {
-        guard let document = PDFDocument(url: url) else { return }
-
-        guard let page = document.page(at: 0) else { return }
+    static func convertPdfToImage(url: URL) -> URL? {
+        guard let document = PDFDocument(url: url) else { return nil }
+        guard let page = document.page(at: 0) else { return nil }
         
         let pageRect = page.bounds(for: .mediaBox)
-        
         let renderer = UIGraphicsImageRenderer(size: pageRect.size)
         
         let img = renderer.image { ctx in
             UIColor.white.set()
             ctx.fill(CGRect(x: 0, y: 0, width: pageRect.width, height: pageRect.height))
             ctx.cgContext.translateBy(x: -pageRect.origin.x, y: pageRect.size.height - pageRect.origin.y)
-            
             ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
             page.draw(with: .mediaBox, to: ctx.cgContext)
         }
-        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
-        }
-    }
-
-class PDFImageAnnotation: PDFAnnotation {
-    private var image: UIImage
-    
-    init(image: UIImage, bounds: CGRect) {
-        self.image = image
-        super.init(bounds: bounds, forType: .stamp, withProperties: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(with box: PDFDisplayBox, in context: CGContext) {
-        guard let cgImage = image.cgImage else { return }
         
-        context.saveGState()
-        context.translateBy(x: bounds.minX, y: bounds.maxY)
-        context.scaleBy(x: -1.0, y: -1.0)
-        context.translateBy(x: -bounds.width, y: 0)
-        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
-        context.restoreGState()
+        let fileManager = FileManager.default
+        guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let imageURL = documentsDirectory.appendingPathComponent("convertedImage.png")
+        
+        if let data = img.pngData() {
+            do {
+                try data.write(to: imageURL)
+                return imageURL
+            } catch {
+                print("Error saving image: \(error)")
+                return nil
+            }
+        }
+        
+        return nil
     }
-
-
+    
+    
+    class PDFImageAnnotation: PDFAnnotation {
+        private var image: UIImage
+        
+        init(image: UIImage, bounds: CGRect) {
+            self.image = image
+            super.init(bounds: bounds, forType: .stamp, withProperties: nil)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func draw(with box: PDFDisplayBox, in context: CGContext) {
+            guard let cgImage = image.cgImage else { return }
+            
+            context.saveGState()
+            context.translateBy(x: bounds.minX, y: bounds.maxY)
+            context.scaleBy(x: -1.0, y: -1.0)
+            context.translateBy(x: -bounds.width, y: 0)
+            context.draw(cgImage, in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
+            context.restoreGState()
+        }
+        
+        
+    }
 }
-
