@@ -13,6 +13,10 @@ struct OfficerProfileView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var subscriptionManager: SubscriptionManager
     @State var currentOfficer: Officer
+    
+    @State var departmentLogo: UIImage?
+    @State var presentImagePicker: Bool = false
+    
     @Binding var shouldLogout: Bool
     
     @State var showSubscribe: Bool = true
@@ -77,6 +81,42 @@ struct OfficerProfileView: View {
                                 currentOfficer.pdfExport = !currentOfficer.imageExport
                             }
                     }
+                    
+                    Section(header: Text("Department Logo").textScale(.secondary)) {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button {
+                                    presentImagePicker = true
+                                    if let departmentLogoImage = departmentLogo {
+                                        saveImageToUserDefaults(image: departmentLogoImage)
+                                    }
+                                } label: {
+                                    if (departmentLogo != nil) {
+                                        Image(uiImage: departmentLogo!)
+                                            .resizable()
+                                            .scaledToFit()
+                                    } else {
+                                        Text("Select Department Logo")
+                                    }
+                                }
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                if departmentLogo != nil {
+                                    Spacer()
+                                    Button {
+                                        deleteImageFromUserDefaults()
+                                    } label: {
+                                        Text("Remove Department Logo")
+                                    }
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                    
                     if !subscriptionManager.hasActiveSubscription && !subscriptionManager.hasActiveDepartmentLicense {
                         Section(header: Text("Subscribe").textScale(.secondary)) {
                             HStack {
@@ -120,7 +160,36 @@ struct OfficerProfileView: View {
                     showSubscribe = false
                 }
             }
+            .onChangeOf(departmentLogo) {newValue in
+                if let departmentLogoImage = departmentLogo {
+                    saveImageToUserDefaults(image: departmentLogoImage)
+                    print("image saved")
+                }
+            }
+            .onAppear {
+                loadImageFromUserDefaults()
+            }
+            .sheet(isPresented: $presentImagePicker) {
+                ImagePicker(image: $departmentLogo)
+            }
         }
+    }
+    func saveImageToUserDefaults(image: UIImage) {
+            if let imageData = image.jpegData(compressionQuality: 1.0) {
+                UserDefaults.standard.setValue(imageData, forKey: "departmentLogo")
+            }
+        }
+    
+    func loadImageFromUserDefaults() {
+        if let imageData = UserDefaults.standard.data(forKey: "departmentLogo"),
+           let savedImage = UIImage(data: imageData) {
+            self.departmentLogo = savedImage
+        }
+    }
+    
+    func deleteImageFromUserDefaults() {
+        UserDefaults.standard.removeObject(forKey: "departmentLogo")
+        self.departmentLogo = nil
     }
 }
 

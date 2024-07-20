@@ -74,17 +74,15 @@ struct OneLegStandInstructionTab: View {
                 .overlay(.black)
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("1. Stand with your feet together and your amr sat your side. Maintain this position until told otherwise.")
+                    Text("1. Stand with your feet together and your arms at your side. Maintain this position until told otherwise.")
                         .padding(.vertical, 25)
                     Text("2. When I tell you to, I want you to raise one leg (either leg) approximately six inches off the ground, keeping the raised foot parallel to the ground, both legs straight, and with both arms at your side.")
                         .padding(.vertical, 25)
-                    Text("3. Look at the elevated foot and count out loud int he following manner \"1001, 1002, 1003\" and so on, until told to stop. (Demonstrate)")
+                    Text("3. Look at the elevated foot and count out loud in the following manner \"1001, 1002, 1003\" and so on, until told to stop. (Demonstrate)")
                         .padding(.vertical, 25)
-                    Text("4. If at any point you put your foot down, raise your foot and continue from where you left off.")
+                    Text("4. Do you understand the instructions?")
                         .padding(.vertical, 25)
-                    Text("5. Do you understand the instructions?")
-                        .padding(.vertical, 25)
-                    Text("6. Begin")
+                    Text("5. Begin")
                         .padding(.vertical, 25)
                 }
                 .font(.title)

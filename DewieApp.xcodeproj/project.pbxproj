@@ -31,7 +31,6 @@
 		8B7106B02C0051CA008DED13 /* WalkAndTurnTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106AD2C0051CA008DED13 /* WalkAndTurnTestView.swift */; };
 		8B7106B22C005F31008DED13 /* OfficerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106B12C005F30008DED13 /* OfficerListView.swift */; };
 		8B7106B42C006139008DED13 /* DepartmentReturningOfficerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7106B32C006139008DED13 /* DepartmentReturningOfficerScreen.swift */; };
-		8B7106B62C006661008DED13 /* DewieFormGFPD.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */; };
 		8BA381BC2C01A56400C69814 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BB2C01A56400C69814 /* LoadingScreen.swift */; };
 		8BA381BE2C01AB2C00C69814 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BD2C01AB2C00C69814 /* StateManager.swift */; };
 		8BA381C02C0675C900C69814 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA381BF2C0675C900C69814 /* ReportManager.swift */; };
@@ -40,6 +39,8 @@
 		8BB2F1D02BFD5D55005395D7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1CF2BFD5D55005395D7 /* ReceiptParser */; };
 		8BB2F1D22BFD5D55005395D7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D12BFD5D55005395D7 /* RevenueCat */; };
 		8BB2F1D42BFD5D55005395D7 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB2F1D32BFD5D55005395D7 /* RevenueCatUI */; };
+		8BFBA1EA2C3871E100BA57C2 /* dewieForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBA1E92C3871E100BA57C2 /* dewieForm.pdf */; };
+		8BFBA1EC2C3878EE00BA57C2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBA1EB2C3878EE00BA57C2 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,12 +70,13 @@
 		8B7106AD2C0051CA008DED13 /* WalkAndTurnTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkAndTurnTestView.swift; sourceTree = "<group>"; };
 		8B7106B12C005F30008DED13 /* OfficerListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficerListView.swift; sourceTree = "<group>"; };
 		8B7106B32C006139008DED13 /* DepartmentReturningOfficerScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentReturningOfficerScreen.swift; sourceTree = "<group>"; };
-		8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DewieFormGFPD.pdf; sourceTree = "<group>"; };
 		8BA381BB2C01A56400C69814 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		8BA381BD2C01AB2C00C69814 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		8BA381BF2C0675C900C69814 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		8BA381C12C06816500C69814 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		8BB2F1CC2BFD5D3F005395D7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		8BFBA1E92C3871E100BA57C2 /* dewieForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dewieForm.pdf; sourceTree = "<group>"; };
+		8BFBA1EB2C3878EE00BA57C2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +143,8 @@
 				8B34D55C2BF7174600F5C789 /* TypeAliases.swift */,
 				8B71069C2BFDB512008DED13 /* ReportExport.swift */,
 				8B34D5602BF71ADD00F5C789 /* Extensions */,
-				8B7106B52C006661008DED13 /* DewieFormGFPD.pdf */,
+				8BFBA1E92C3871E100BA57C2 /* dewieForm.pdf */,
+				8BFBA1EB2C3878EE00BA57C2 /* ImagePicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,9 +311,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B7106B62C006661008DED13 /* DewieFormGFPD.pdf in Resources */,
 				8B34D50A2BF7023D00F5C789 /* Preview Assets.xcassets in Resources */,
 				8B34D5072BF7023D00F5C789 /* Assets.xcassets in Resources */,
+				8BFBA1EA2C3871E100BA57C2 /* dewieForm.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +327,7 @@
 				8B7106992BFDACC0008DED13 /* OfficerManager.swift in Sources */,
 				8B7106A52C00507A008DED13 /* DepartmentLoginScreen.swift in Sources */,
 				8B34D56A2BF7255D00F5C789 /* OfficerProfileView.swift in Sources */,
+				8BFBA1EC2C3878EE00BA57C2 /* ImagePicker.swift in Sources */,
 				8BA381C22C06816500C69814 /* License.swift in Sources */,
 				8B7106B42C006139008DED13 /* DepartmentReturningOfficerScreen.swift in Sources */,
 				8B34D5122BF7037F00F5C789 /* WelcomeScreen.swift in Sources */,
@@ -479,7 +483,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"DewieApp/Preview Content\"";
 				DEVELOPMENT_TEAM = U39ZK6BR9C;
 				ENABLE_PREVIEWS = YES;
@@ -514,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"DewieApp/Preview Content\"";
 				DEVELOPMENT_TEAM = U39ZK6BR9C;
 				ENABLE_PREVIEWS = YES;

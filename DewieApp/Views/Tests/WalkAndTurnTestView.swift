@@ -99,7 +99,7 @@ struct WalkAndTurnInstructionTab1: View {
                 VStack(alignment: .leading) {
                     Text("1. You are going to pretend there is a straight line directly in front of you.")
                         .padding(.vertical, 25)
-                    Text("2. Put you left foot on the line, then place your right foot on the line ahead of your left, with the heel of your right foot against the toe of your left. (DEMONSTRATE)")
+                    Text("2. Put your left foot on the line, then place your right foot on the line ahead of your left, with the heel of your right foot against the toe of your left. (DEMONSTRATE)")
                         .padding(.vertical, 25)
                     Text("3. Do not start until I tell you to do so.")
                         .padding(.vertical, 25)
@@ -113,8 +113,6 @@ struct WalkAndTurnInstructionTab1: View {
                         .padding(.vertical, 25)
                     Text("8. Do you understand the instructions?")
                         .padding(.vertical, 25)
-                    Text("9. You may begin.")
-                        //.padding(.bottom, 50)
 
                 }
                 .font(.title)
