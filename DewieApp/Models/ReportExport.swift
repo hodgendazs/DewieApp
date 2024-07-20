@@ -281,14 +281,14 @@ class PDFImageAnnotation: PDFAnnotation {
     override func draw(with box: PDFDisplayBox, in context: CGContext) {
         guard let cgImage = image.cgImage else { return }
         
-        // Translate and scale context to match the PDF coordinate system
         context.saveGState()
-        context.translateBy(x: bounds.minX, y: bounds.minY)
-        context.scaleBy(x: 1.0, y: -1.0)
-        context.translateBy(x: 0, y: -bounds.height)
-        
+        context.translateBy(x: bounds.minX, y: bounds.maxY)
+        context.scaleBy(x: -1.0, y: -1.0)
+        context.translateBy(x: -bounds.width, y: 0)
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
         context.restoreGState()
     }
+
+
 }
 
