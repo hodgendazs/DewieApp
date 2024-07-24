@@ -16,7 +16,6 @@ class ReportExport {
         // load the PDF file
         guard let url = Bundle.main.url(forResource: "dewieForm", withExtension: "pdf"),
               let pdfDocument = PDFDocument(url: url) else {
-            print("PDF Not Found")
             return
         }
         
@@ -36,11 +35,9 @@ class ReportExport {
                     
                 case "departmentLogo":
                     guard let departmentLogoImage = departmentLogo else {
-                        print("image not loaded")
                         return
                     }
                     
-                    print("image loaded")
                     let fixedSize = CGSize(width: 98, height: 98)
                     
                     // Center the image within the original annotation bounds
@@ -218,7 +215,7 @@ class ReportExport {
                     page.removeAnnotation(annotation)
                     page.addAnnotation(annotation)
                 case "copyrightNotice":
-                    let placeholderValue = "© \(Calendar.current.component(.year, from: Date())) - Big Sky Digital Foundry"
+                    let placeholderValue = "© \(Calendar.current.component(.year, from: Date())) - Big Sky Digital Foundry, LLC"
                     annotation.setValue(placeholderValue, forAnnotationKey: .widgetValue)
                     page.removeAnnotation(annotation)
                     page.addAnnotation(annotation)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WalkAndTurnTestView: View {
     @Environment(\.dismiss) private var dismiss
@@ -63,7 +64,6 @@ struct WalkAndTurnTestView: View {
             .background(.black)
         }
         .onChange(of: submitWalkAndTurn) {
-            print(walkAndTurnNotes)
             walkAndTurnTestResults = Report.WalkAndTurn(startsTooSoon: startsTooSoon, cannotRemainInStartingPosition: cannotRemainInStartingPosition, stepsOffTheLine: stepsOffLine, missesHeelToToe: missesHeelToToe, raisesArmForBalance: raisesArmForBalance, stops: stops, incorrectNumberOfSteps: incorrectNumberOfSteps, numberOfIncorrectNumberOfSteps: numberOfIncorrectSteps, turnNotAsDescribed: turnNotAsDescribed, improperTurnDescription: improperTurnDescription, walkAndTurnNotes: walkAndTurnNotes)
             walkAndTurnTestComplete = true
             dismiss()
@@ -129,7 +129,6 @@ struct WalkAndTurnInstructionTab1: View {
 struct WalkAndTurnTestResultsTab: View {
     @Binding var startsTooSoon: Bool
     @Binding var cannotRemainInStartingPosition: Bool
-    
     @Binding var stepsOffLine: Bool
     @Binding var missesHeelToToe: Bool
     @Binding var raisesArmForBalance: Bool
@@ -140,45 +139,48 @@ struct WalkAndTurnTestResultsTab: View {
     @Binding var improperTurnDescription: String
     
     var body: some View {
-        VStack {
-            Text("Walk and Turn - Scoring")
-                .foregroundStyle(.white)
-                .padding(.vertical)
-                .font(.largeTitle)
-                .bold()
-                .textScale(.secondary)
-            
-            Divider()
-                .frame(height: 2)
-                .overlay(.black)
-            
-            Form {
-                Section {
-                    Toggle("Starts Too Soon", isOn: $startsTooSoon)
-                    Toggle("Cannot Remain In Starting Position", isOn: $cannotRemainInStartingPosition)
-                } header: {
-                    Text("Instruction Phase")
-                }
+        ScrollView {
+            VStack {
+                Text("Walk and Turn - Scoring")
+                    .foregroundStyle(.white)
+                    .padding(.vertical)
+                    .font(.largeTitle)
+                    .bold()
+                    .textScale(.secondary)
                 
-                Section {
-                    Toggle("Steps Off Line", isOn: $stepsOffLine)
-                    Toggle("Misses Heel-To-Toe ( > 1/2\" )", isOn: $missesHeelToToe)
-                    Toggle("Raises Arm(s) For Balance", isOn: $raisesArmForBalance)
-                    Toggle("Stops", isOn: $stops)
-                    Toggle("Incorrect # Of Steps", isOn: $incorrectNumberOfSteps)
-                    if incorrectNumberOfSteps {
-                        TextField("Number of Steps", text: $numberOfIncorrectSteps)
+                Divider()
+                    .frame(height: 2)
+                    .overlay(.black)
+                
+                Form {
+                    Section {
+                        Toggle("Starts Too Soon", isOn: $startsTooSoon)
+                        Toggle("Cannot Remain In Starting Position", isOn: $cannotRemainInStartingPosition)
+                    } header: {
+                        Text("Instruction Phase")
                     }
-                    Toggle("Turn Not As Described", isOn: $turnNotAsDescribed)
-                    if turnNotAsDescribed {
-                        TextField("Turn Description", text: $improperTurnDescription)
+                    
+                    Section {
+                        Toggle("Steps Off Line", isOn: $stepsOffLine)
+                        Toggle("Misses Heel-To-Toe ( > 1/2\" )", isOn: $missesHeelToToe)
+                        Toggle("Raises Arm(s) For Balance", isOn: $raisesArmForBalance)
+                        Toggle("Stops", isOn: $stops)
+                        Toggle("Incorrect # Of Steps", isOn: $incorrectNumberOfSteps)
+                        if incorrectNumberOfSteps {
+                            TextField("Number of Steps", text: $numberOfIncorrectSteps)
+                        }
+                        Toggle("Turn Not As Described", isOn: $turnNotAsDescribed)
+                        if turnNotAsDescribed {
+                            TextField("Turn Description", text: $improperTurnDescription)
+                        }
+                    } header: {
+                        Text("Performance Phase")
                     }
-                } header: {
-                    Text("Performance Phase")
                 }
+                .frame(height: 550)
             }
-            .frame(height: 550)
         }
+
     }
 }
 

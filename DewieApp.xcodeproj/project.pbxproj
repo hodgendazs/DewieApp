@@ -218,8 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				8B7106AB2C0051CA008DED13 /* HGNTestView.swift */,
-				8B7106AC2C0051CA008DED13 /* OneLegStandTestView.swift */,
 				8B7106AD2C0051CA008DED13 /* WalkAndTurnTestView.swift */,
+				8B7106AC2C0051CA008DED13 /* OneLegStandTestView.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

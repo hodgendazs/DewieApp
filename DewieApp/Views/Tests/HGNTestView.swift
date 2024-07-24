@@ -59,7 +59,7 @@ struct HGNTestView: View {
                 HGNInstructionTab()
                 
                 // second page
-                HGNTestResultsTab(equalPupilSize: $equalPupilSize, noRestingNystagmus: $noRestingNystagmus, equalTracking: $equalTracking, lackLeftEye: $lackLeftEye, lackRightEye: $lackRightEye, distinctLeftEye: $distinctLeftEye, distinctRightEye: $distinctRightEye, onsetLeftEye: $onsetLeftEye, onsetRightEye: $onsetRightEye, vgnPresent: $vgnPresent)
+                HGNTestResultsTab(equalPupilSize: $equalPupilSize, noRestingNystagmus: $noRestingNystagmus, equalTracking: $equalTracking, lackLeftEye: $lackLeftEye, lackRightEye: $lackRightEye, distinctLeftEye: $distinctLeftEye, distinctRightEye: $distinctRightEye, onsetLeftEye: $onsetLeftEye, onsetRightEye: $onsetRightEye, vgnPresent: $vgnPresent, vgnNotPresent: $vgnNotPresent)
                 
                 HGNNotesTab(hgnNotes: $hgnNotes, submitHGN: $submitHGN)
             }
@@ -67,6 +67,7 @@ struct HGNTestView: View {
             .background(.black)
         }
         .onChange(of: submitHGN) {
+            print("VGN Present: \(vgnPresent) -- VGN Not Present: \(vgnNotPresent)")
             hgnTestResults = Report.HGN(equalPupilSize: equalPupilSize, noRestingNystagmus: noRestingNystagmus, equalTracking: equalTracking, lackLeftEye: lackLeftEye, lackRightEye: lackRightEye, distinctLeftEye: distinctLeftEye, distinctRightEye: distinctRightEye, onsetLeftEye: onsetLeftEye, onsetRightEye: onsetRightEye, vgnNotPresent: vgnNotPresent, vgnPresent: vgnPresent, hgnNotes: hgnNotes)
             hgnTestComplete = true
             dismiss()
@@ -132,7 +133,7 @@ struct HGNTestResultsTab: View {
     @Binding var onsetRightEye: Bool
     
     @Binding var vgnPresent: Bool
-    @State var vgnNotPresent: Bool = true
+    @Binding var vgnNotPresent: Bool
     
     var body: some View {
         VStack {
@@ -201,7 +202,7 @@ struct HGNTestResultsTab: View {
 
 struct HGNNotesTab: View {
     @Environment(\.colorScheme) var colorScheme
-
+    
     @Binding var hgnNotes: String
     @Binding var submitHGN: Bool
     
@@ -216,7 +217,7 @@ struct HGNNotesTab: View {
                 .clipShape(RoundedRectangle(cornerRadius: 7.0))
                 .padding()
                 .foregroundStyle(.black)
-                
+            
             
             Button {
                 submitHGN = true

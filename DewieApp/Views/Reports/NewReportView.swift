@@ -28,9 +28,10 @@ struct NewReportView: View {
     
     @State var caseNumberSet: Bool = false
     @State var reportSubmitted: Bool = false
+    @State var cancelReport: Bool = false
     
     private var readyToSubmit: Bool {
-        !hgnTestComplete || !walkAndTurnTestComplete
+        !hgnTestComplete || !walkAndTurnTestComplete || !oneLegStandTestComplete
     }
     
     var body: some View {
@@ -54,7 +55,7 @@ struct NewReportView: View {
                         }
                         
                     }
-
+                    
                 } else {
                     Text("Case Number: \(caseNumber)")
                 }
@@ -69,7 +70,6 @@ struct NewReportView: View {
                                 .disabled(walkAndTurnTestComplete || !caseNumberSet)
                             Test(shouldPresent: $oneLegStandTest, shouldComplete: $oneLegStandTestComplete, testName: "One Leg Stand")
                                 .disabled(oneLegStandTestComplete || !caseNumberSet)
-                            
                             HStack {
                                 Spacer()
                                 Button {
@@ -82,6 +82,24 @@ struct NewReportView: View {
                                 }
                                 .disabled(readyToSubmit)
                                 .navigationDestination(isPresented: $reportSubmitted) {
+                                    HomeScreen()
+                                        .navigationBarBackButtonHidden(true)
+                                }
+                                Spacer()
+                            }
+                            
+                            
+                        }
+                        Section {
+                            HStack {
+                                Spacer()
+                                Button {
+                                    cancelReport = true
+                                } label: {
+                                    Text("Cancel Report")
+                                        .tint(.red)
+                                }
+                                .navigationDestination(isPresented: $cancelReport) {
                                     HomeScreen()
                                         .navigationBarBackButtonHidden(true)
                                 }
