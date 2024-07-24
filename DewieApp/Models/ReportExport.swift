@@ -255,10 +255,17 @@ class ReportExport {
         let img = renderer.image { ctx in
             UIColor.white.set()
             ctx.fill(CGRect(x: 0, y: 0, width: pageRect.width, height: pageRect.height))
-            ctx.cgContext.translateBy(x: -pageRect.origin.x, y: pageRect.size.height - pageRect.origin.y)
+            
+            // Correctly orient the context for PDF page rendering
+            ctx.cgContext.translateBy(x: 0, y: pageRect.size.height)
             ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
+            
+            // Draw the PDF page in the correct orientation
             page.draw(with: .mediaBox, to: ctx.cgContext)
         }
+        
+        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+        
         
         let fileManager = FileManager.default
         guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -294,9 +301,7 @@ class ReportExport {
             guard let cgImage = image.cgImage else { return }
             
             context.saveGState()
-            context.translateBy(x: bounds.minX, y: bounds.maxY)
-            context.scaleBy(x: -1.0, y: -1.0)
-            context.translateBy(x: -bounds.width, y: 0)
+            context.translateBy(x: bounds.minX, y: bounds.minY)
             context.draw(cgImage, in: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
             context.restoreGState()
         }
