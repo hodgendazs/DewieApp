@@ -71,19 +71,20 @@ struct OfficerProfileView: View {
                         }
                     }
                     
-                    Section(header: Text("Export Type").textScale(.secondary)) {
-                        Toggle("PDF Export", isOn: $currentOfficer.pdfExport)
-                            .onChange(of: currentOfficer.pdfExport) {
-                                currentOfficer.imageExport = !currentOfficer.pdfExport
-                            }
-                        Toggle("Image Export", isOn: $currentOfficer.imageExport)
-                            .onChange(of: currentOfficer.imageExport) {
-                                currentOfficer.pdfExport = !currentOfficer.imageExport
-                            }
-                    }
+//                    Section(header: Text("Export Type").textScale(.secondary)) {
+//                        Toggle("PDF Export", isOn: $currentOfficer.pdfExport)
+//                            .onChange(of: currentOfficer.pdfExport) {
+//                                currentOfficer.imageExport = !currentOfficer.pdfExport
+//                            }
+//                        Toggle("Image Export", isOn: $currentOfficer.imageExport)
+//                            .onChange(of: currentOfficer.imageExport) {
+//                                currentOfficer.pdfExport = !currentOfficer.imageExport
+//                            }
+//                    }
                     
                     Section(header: Text("Department Logo").textScale(.secondary)) {
                         VStack {
+                            Spacer()
                             HStack {
                                 Spacer()
                                 Button {
@@ -102,7 +103,7 @@ struct OfficerProfileView: View {
                                 }
                                 Spacer()
                             }
-                            
+                            Spacer()
                             HStack {
                                 if departmentLogo != nil {
                                     Spacer()
@@ -114,6 +115,7 @@ struct OfficerProfileView: View {
                                     Spacer()
                                 }
                             }
+                            Spacer()
                         }
                     }
                     

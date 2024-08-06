@@ -17,7 +17,7 @@ class SubscriptionManager: ObservableObject {
     @Published var departmentLicenseExpirationDate: String = ""
     
     func validateDepartmentCode(departmentCode: String) {
-        if departmentCode == "betaTest" {
+        if departmentCode == "dewiebeta406!" {
             UserDefaults.standard.set(true, forKey: "hasValidDepartmentLicense")
             hasActiveDepartmentLicense = true
             hasFullAccess = true

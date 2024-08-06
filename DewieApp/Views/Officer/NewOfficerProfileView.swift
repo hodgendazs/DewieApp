@@ -61,16 +61,16 @@ struct NewOfficerProfileView: View {
                         }
                         
                         // export type section
-                        Section(header: Text("Export Type").textScale(.secondary)) {
-                            Toggle("PDF Export", isOn: $pdfExport)
-                                .onChange(of: pdfExport) {
-                                    imageExport = !pdfExport
-                                }
-                            Toggle("Image Export", isOn: $imageExport)
-                                .onChange(of: imageExport) {
-                                    pdfExport = !imageExport
-                                }
-                        }
+//                        Section(header: Text("Export Type").textScale(.secondary)) {
+//                            Toggle("PDF Export", isOn: $pdfExport)
+//                                .onChange(of: pdfExport) {
+//                                    imageExport = !pdfExport
+//                                }
+//                            Toggle("Image Export", isOn: $imageExport)
+//                                .onChange(of: imageExport) {
+//                                    pdfExport = !imageExport
+//                                }
+//                        }
                         
                         Section(header: Text("Department Logo").textScale(.secondary)) {
                             VStack {

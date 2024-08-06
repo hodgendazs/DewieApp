@@ -2,17 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Permission used to save report export as image to device.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Permission used to save report export as image to device.</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Permission used to save report export as image to device.</string>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>dewieGreen</string>
+		<key>UIImageName</key>
+		<string>DewieLogoSmall</string>
+	</dict>
 </dict>
 </plist>
